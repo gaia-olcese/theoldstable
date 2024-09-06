@@ -32,7 +32,8 @@
         }
         .photos img { 
             width: 200px; 
-            height: auto; 
+            height: 200px; /* Ensure all images are square */
+            object-fit: cover; /* Crop images while maintaining aspect ratio */
             border-radius: 10px; 
             border: 2px solid #5D4037; /* Dark Brown */
         }
@@ -57,44 +58,40 @@
     </header>
 
     <section>
-        <p>The Old stable is a cosy guest house located right behind Chipping Sodbury High Street, where you'll find plenty of pubs, restaurants and shops.<br> 
-            This small two-floor guest house has everything you need for your stay on the edge of the Cotswolds and has a separate entrance through the garden. </p>
+        <p>The Old stable is a cosy guest house located right behind Chipping Sodbury High Street, where you'll find plenty of pubs, restaurants, and shops.<br> 
+            This small two-floor guest house has everything you need for your stay on the edge of the Cotswolds and has a separate entrance through the garden.</p>
         <h2>About our space</h2>
-        <p>On the ground floor you will find a kitchenette with the essentials for breakfast and a quick bite, a dining table and a double futon style sofa bed. <br>
-            The bedroom (upstairs) has a double bed, wardrobe and a small bathroom. <br>
-            Please note that the our the shower is quite short. If you are over 6 foot, it might be a tight squeeze! <br>
-            The stairs are also quite narrow and relatively steep, so please consider this if you have any mobility issues.</p>
+        <p>On the ground floor, you will find a kitchenette with the essentials for breakfast and a quick bite, a dining table, and a double futon-style sofa bed.<br>
+            The bedroom (upstairs) has a double bed, wardrobe, and a small bathroom.<br>
+            Please note that the shower is quite short. If you are over 6 feet, it might be a tight squeeze!<br>
+            The stairs are also narrow and relatively steep, so please consider this if you have any mobility issues.</p>
         <h2>Meet the team</h2>
-        <p>The Old Stable is entirely managed by us, Gaia and Adam: we live at the same address and have recently renovated and decorated the space. <br>
-        We will try our best to meet you when you arrive, but we also have a lock box so you can self check-in (and check-out) at your convenience. <br>
-        During your stay you might also meet our two purr-fect assistants, Freya and Nya </p>
+        <p>The Old Stable is entirely managed by us, Gaia and Adam. We live at the same address and have recently renovated and decorated the space.<br>
+        We will try our best to meet you when you arrive, but we also have a lockbox so you can self check-in (and check-out) at your convenience.<br>
+        During your stay, you might also meet our two purr-fect assistants, Freya and Nya!</p>
         <div class="photos">
-            <!-- Replace with your own images -->
             <img src="gaia_adam.jpg" alt="Gaia & Adam">
             <img src="nya.jpg" alt="Nya">
             <img src="freya.jpg" alt="Freya">
-            
         </div>
     </section>    
     
     <section class="gallery">
         <h2>Gallery</h2>
         <div class="photos">
-            <!-- Replace with your own images -->
             <img src="https://via.placeholder.com/200" alt="Guest House Photo 1">
             <img src="https://via.placeholder.com/200" alt="Guest House Photo 2">
             <img src="https://via.placeholder.com/200" alt="Guest House Photo 3">
             <img src="https://via.placeholder.com/200" alt="Guest House Photo 4">
             <img src="https://via.placeholder.com/200" alt="Guest House Photo 5">
             <img src="https://via.placeholder.com/200" alt="Guest House Photo 6">
-            
         </div>
     </section>
 
     <section class="location">
         <h2>Location</h2>
         <p>Horse Street, Chipping Sodbury, BS37 6DA</p>
-        <p><a href="https://maps.google.com/?q=Horse+Street+Chipping+Sodbury">View on Google Maps</a></p>
+        <p><a href="https://maps.google.com/?q=Horse+Street+Chipping+Sodbury" target="_blank">View on Google Maps</a></p>
     </section>
 
     <section class="contact">

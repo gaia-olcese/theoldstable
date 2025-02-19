@@ -104,6 +104,31 @@
             align-items: center;
             margin-top: 20px; /* Adjust spacing */
         }
+        
+        .location-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            flex-wrap: wrap; /* Allows stacking on smaller screens */
+            margin: 20px auto;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .location {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+
+        .map-calendar {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
     </style>
 </head>
 <body>
@@ -155,6 +180,8 @@
         </div>
     </section>
 
+<!-- Location & Map-Calendar container -->
+<div class="location-container">        
     <!-- Location section -->
     <section class="location">
         <h2>Location</h2>
@@ -175,7 +202,8 @@
             style="border: 0;" width="600" height="450" frameborder="0" scrolling="no">
         </iframe>
     </div>
-
+</div>
+        
     <!-- Contact section -->
     <section class="contact">
         <h2>Contact Us</h2>

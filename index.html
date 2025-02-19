@@ -6,146 +6,164 @@
     <title>The Old Stable</title>
     <style>
         /* General body styles */
-        body { 
-            font-family: Arial, sans-serif; 
-            background-image: url('background.jpg'); /* Replace with your image */
-            background-size: cover; /* Ensures the image covers the entire screen */
-            background-position: center; /* Centers the image */
-            background-attachment: fixed; /* Keeps the image static when scrolling */
-            color: #5D4037; /* Dark Brown for readability */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #5D4037;
             margin: 0;
-        } 
-        
-        /* Light Overlay that scrolls with the page */
+        }
+
+        /* Light Overlay */
         .overlay {
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(255, 255, 255, 0.4); /* Light semi-transparent overlay */
-            z-index: -1; /* Keeps it behind the content */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.4);
+            z-index: -1;
         }
-        
+
         /* Header styles */
-        header { 
-            text-align: center; 
-            padding: 50px; 
-            background-color: #8F9C69; /* Updated Sage Green */ 
-            color: #EEF1E8; /* Updated Cream */
+        header {
+            text-align: center;
+            padding: 50px;
+            background-color: #8F9C69;
+            color: #EEF1E8;
         }
-        h1 { 
-            margin: 0; 
+
+        h1 {
+            margin: 0;
         }
 
         /* Section styles */
-        section { 
-            margin: 20px auto; 
-            width: 80%; 
-            max-width: 1000px; 
+        section {
+            margin: 20px auto;
+            width: 80%;
+            max-width: 1000px;
         }
 
         /* Photo gallery styles */
-        .photos { 
-            display: flex; 
-            flex-wrap: wrap; 
-            gap: 10px; 
-            justify-content: center; 
+        .photos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
         }
-        .photos img { 
-            width: 200px; 
-            height: 200px; /* Ensure all images are square */
-            object-fit: cover; /* Crop images while maintaining aspect ratio */
-            border-radius: 10px; 
-            border: 2px solid #5D4037; /* Dark Brown */
+
+        .photos img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid #5D4037;
         }
-        
-        /* Horizontal gallery container */
+
+        /* Gallery Section Styles */
+        .gallery-section { /* New class for the whole gallery section */
+            text-align: center; /* Center the "Gallery" heading */
+            margin: 20px auto;
+            width: 80%;
+            max-width: 1000px;
+        }
+
         .gallery-container {
             width: 90%;
             max-width: 1000px;
-            margin: auto;
+            margin: 20px auto; /* Add top/bottom margin for spacing */
             overflow-x: auto;
             white-space: nowrap;
             padding: 10px 0;
         }
 
-        /* Horizontal gallery styles */
         .gallery {
             display: flex;
             gap: 10px;
         }
 
         .gallery img {
-            width: 300px; /* Adjust as needed */
+            width: 300px;
             height: 200px;
-            object-fit: cover; /* Ensures uniform image size */
+            object-fit: cover;
             border-radius: 10px;
-            border: 2px solid #5D4037; /* Dark Brown */
-        }
-        
-        /* Location and contact section styles */
-        .location, .contact { 
-            text-align: center; 
-            margin-top: 20px; 
-        }
-        .location a, .contact a {
-            color: #A3B18A; /* Light Sage Green */
+            border: 2px solid #5D4037;
         }
 
-        /* Footer styles */
-        footer { 
-            text-align: center; 
-            padding: 10px; 
-            background-color: #8F9C69; /* Updated Sage Green */
-            color: #EEF1E8; /* Updated Cream */
-            position: relative; /* Ensures it stays within normal flow */
-            left: 0;
-        }
-
-        /* Calendar container styles */
-        .calendar-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px; /* Adjust spacing */
-        }
-        
+        /* Location and Map-Calendar styles */
         .location-container {
             display: flex;
-            justify-content: center;
-            align-items: flex-start;
+            flex-direction: column; /* Stack location above map/calendar */
+            align-items: center; /* Center horizontally */
             gap: 20px;
-            flex-wrap: wrap; /* Allows stacking on smaller screens */
             margin: 20px auto;
             width: 90%;
             max-width: 1200px;
         }
 
         .location {
-            flex: 1;
-            min-width: 250px;
             text-align: center;
+            width: 100%; /* Make location take full width */
         }
 
         .map-calendar {
-            flex: 2;
             display: flex;
             flex-direction: column;
             gap: 10px;
+            width: 100%; /* Make map and calendar take full width */
+            align-items: center;  /* Center the map and calendar */
+        }
+
+        .map-calendar iframe {
+            width: 90%; /* Adjust as needed for smaller screens */
+            max-width: 600px; /* Limit map width */
+            height: 450px;
+            border: 0;
+        }
+
+
+        /* Contact and Footer styles (no changes needed) */
+        .contact {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .contact a {
+            color: #A3B18A;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #8F9C69;
+            color: #EEF1E8;
+            position: relative;
+            left: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .map-calendar iframe {
+                width: 95%; /* Make map and calendar nearly full width on mobile */
+                height: 300px; /* Adjust height for mobile */
+            }
+            .gallery img {
+                width: 90%;
+                height: auto;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Overlay for background -->
-    <div class="overlay"></div> 
-
-    <!-- Header section -->
+    <div class="overlay"></div>
     <header>
         <h1>Welcome to The Old Stable</h1>
     </header>
 
-    <!-- Main content section -->
     <section>
-        <p>The Old stable is a cosy guest house located right behind Chipping Sodbury High Street, where you'll find plenty of pubs, restaurants, and shops.<br> 
+        <p>The Old stable is a cosy guest house located right behind Chipping Sodbury High Street, where you'll find plenty of pubs, restaurants, and shops.<br>
             This small two-floor guest house has everything you need for your stay on the edge of the Cotswolds and has a separate entrance through the garden.</p>
         <h2>About our space</h2>
         <p>On the ground floor, you will find a kitchenette with the essentials for breakfast and a quick bite, a square dining table, and a sofa bed.<br>
@@ -154,19 +172,16 @@
             The stairs are also quite narrow and steep, so they are not suitable for people with mobility issues.</p>
         <h2>Meet the team</h2>
         <p>The Old Stable is entirely managed by us, Gaia and Adam. We live at the same address and have recently renovated and decorated the space.<br>
-        We will try our best to meet you when you arrive, but we also have a lockbox so you can self check-in (and check-out) at your convenience.<br>
-        During your stay, you might also meet our two purr-fect assistants, Freya and Nya!</p>
-        <!-- Photo gallery -->
+            We will try our best to meet you when you arrive, but we also have a lockbox so you can self check-in (and check-out) at your convenience.<br>
+            During your stay, you might also meet our two purr-fect assistants, Freya and Nya!</p>
         <div class="photos">
             <img src="gaia_adam.jpg" alt="Gaia & Adam">
             <img src="nya.jpg" alt="Nya">
             <img src="freya.jpg" alt="Freya">
         </div>
-    </section>    
-    
-    <!-- Gallery section -->
-    <h2>Gallery</h2>
-    <section class="gallery">
+    </section>
+
+    <section class="gallery-section">  <h2>Gallery</h2>
         <div class="gallery-container">
             <div class="gallery">
                 <img src="exterior.png" alt="Exterior view">
@@ -181,33 +196,26 @@
         </div>
     </section>
 
-    <!-- Location & Map-Calendar container -->
-    <div class="location-container">        
-        <!-- Location section -->
+    <div class="location-container">
         <section class="location">
             <h2>Location</h2>
             <p>Horse Street, Chipping Sodbury, BS37 6DA</p>
         </section>
-    
-        <!-- Maps and calendar embed -->
+
         <div class="map-calendar">
-            <!-- Google Maps -->
-            <iframe 
+            <iframe
                 src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d737.7983398680805!2d-2.3918711035246343!3d51.5380172825295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNTHCsDMyJzE3LjMiTiAywrAyMycyNi41Ilc!5e0!3m2!1sen!2suk!4v1739899902607!5m2!1sen!2suk"
                 width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
             </iframe>
-            
-            <!-- Calendar availability text -->
+
             <h2>Check our availability</h2>
-            <!-- Airbnb Calendar -->
-            <iframe 
-                src="https://calendar.google.com/calendar/embed?src=65bro21muorhn8n392rmdc629aqlm92l%40import.calendar.google.com&ctz=Europe%2FLondon" 
+            <iframe
+                src="https://calendar.google.com/calendar/embed?src=65bro21muorhn8n392rmdc629aqlm92l%40import.calendar.google.com&ctz=Europe%2FLondon"
                 style="border: 0;" width="600" height="450" frameborder="0" scrolling="no">
             </iframe>
         </div>
     </div>
 
-    <!-- Contact section -->
     <section class="contact">
         <h2>Contact Us</h2>
         <p>You can book with us through <a href="https://www.airbnb.co.uk/rooms/1185572450476986600?guests=1&adults=1&s=67&unique_share_id=c0d5f85c-7058-4e52-8c38-efd1c77179bb" target="_blank">Airbnb</a><br>

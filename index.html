@@ -94,7 +94,6 @@
         /* Location and Map-Calendar styles */
         .location-container {
             display: flex;
-            flex-direction: column; /* Stack location above map/calendar */
             align-items: center; /* Center horizontally */
             gap: 20px;
             margin: 20px auto;
@@ -144,6 +143,10 @@
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
+            .location-container {
+                flex-direction: row; /* Side-by-side on larger screens */
+                align-items: flex-start; /* Align items to the top */
+            }
             .map-calendar iframe {
                 width: 95%; /* Make map and calendar nearly full width on mobile */
                 height: 300px; /* Adjust height for mobile */

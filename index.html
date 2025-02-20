@@ -59,17 +59,31 @@
             text-align: center; /* Center the heading */
             margin: 20px auto; /* Merge both margin rules */
             width: 80%;
-            max-width: 1000px;
+            max-width: 500px;
         }
         
         /* Horizontal gallery container */
         .gallery-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px; /* More space between images */
-            padding: 20px 0;
+            width: 80%; /* Limits gallery width */
+            max-width: 1000px; /* Ensures it doesn’t stretch too wide */
+            margin: auto; /* Centers it */
+            overflow-x: auto; /* Enables horizontal scrolling */
+            white-space: nowrap; /* Keeps images in a row */
+            padding: 10px 0; /* Adds spacing */
+            scrollbar-width: thin; /* Styles scrollbar for Firefox */
+            scrollbar-color: #A3B18A transparent; /* Custom scrollbar color */
         }
+
+        /* Hide scrollbar for Webkit browsers (Chrome, Safari) */
+        .gallery-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .gallery-container::-webkit-scrollbar-thumb {
+            background: #A3B18A; /* Sage Green */
+            border-radius: 10px;
+        }
+
         
         /* Horizontal gallery styles */
         .gallery {
@@ -79,7 +93,7 @@
         
         /* Gallery images */
         .gallery img {
-            width: 500px; /* Adjust as needed */
+            width: 300px; /* Adjust as needed */
             height: 300px;
             object-fit: cover; /* Ensures uniform image size */
             border: 3px solid #A3B18A; /* Subtle sage green border */
@@ -89,7 +103,7 @@
 
         /* Hover effect */
         .gallery img:hover {
-            transform: scale(2); /* Slight zoom */
+            transform: scale(1.5); /* Slight zoom */
             box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
             cursor: pointer;
         }

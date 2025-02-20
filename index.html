@@ -5,6 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Old Stable</title>
     <style>
+        /* Basic navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: center; /* Centering the nav menu */
+            align-items: center;
+            background-color: #A3B18A; /* Sage Green */
+            padding: 15px 20px;
+            font-family: Arial, sans-serif;
+        }
+        
+        /* Navigation Links */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .nav-links li {
+            display: inline;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            padding: 8px 12px;
+            transition: color 0.3s ease-in-out;
+        }
+        
+        /* Hover effect */
+        .nav-links a:hover {
+            color: #5D4037; /* Dark Brown */
+        }
+        
+        /* Mobile Menu Button */
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+        
+        /* Responsive Menu - Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: #A3B18A;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 50%;
+                text-align: right;
+                padding: 10px 0;
+            }
+        
+            .nav-links.active {
+                display: flex;
+            }
+        
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        
         /* General body styles */
         body {
             font-family: Arial, sans-serif;
@@ -156,12 +224,23 @@
 <body>
     <!-- Overlay for background -->
     <div class="overlay"></div>
+    
+    <!-- Navigation Menu -->
+    <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="location.html">Location</a></li>
+            </ul>
+        <div class="menu-toggle">&#9776;</div> <!-- Mobile menu icon -->
+    </nav>
 
+    
     <!-- Header section -->
     <header>
         <h1>Welcome to The Old Stable</h1>
     </header>
-
+    
     <!-- Main content section -->
     <section>
         <p>The Old stable is a cosy guest house located right behind Chipping Sodbury High Street, where you'll find plenty of pubs, restaurants, and shops.<br>

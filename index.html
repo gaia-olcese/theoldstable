@@ -52,37 +52,38 @@
             width: 200px;
             height: 200px; /* Ensure all images are square */
             object-fit: cover; /* Crop images while maintaining aspect ratio */
-            border-radius: 10px;
-            border: 2px solid #5D4037; /* Dark Brown */
         }
-
+        
+        /* Gallery section */
+        .gallery-section {
+            text-align: center; /* Center the heading */
+            margin: 20px auto; /* Merge both margin rules */
+            width: 80%;
+            max-width: 1000px;
+        }
+        
         /* Horizontal gallery container */
         .gallery-container {
             width: 90%;
             max-width: 1000px;
             margin: auto;
             overflow-x: auto;
-            white-space: nowrap;
             padding: 10px 0;
         }
-
+        
         /* Horizontal gallery styles */
         .gallery {
             display: flex;
             gap: 10px;
         }
-        .gallery-section {
-            margin: 20px auto;
-            width: 80%;
-            max-width: 1000px;
-        }
+        
+        /* Gallery images */
         .gallery img {
             width: 300px; /* Adjust as needed */
             height: 200px;
             object-fit: cover; /* Ensures uniform image size */
-            border-radius: 10px;
-            border: 2px solid #5D4037; /* Dark Brown */
         }
+
 
         /* Location and contact section styles */
         .location, .contact {
@@ -174,7 +175,6 @@
     <!-- Gallery section -->
     <section class="gallery">
         <h2>Gallery</h2>
-        <p> <p>
         <div class="gallery-container">
             <div class="gallery">
                 <img src="exterior.png" alt="Exterior view">

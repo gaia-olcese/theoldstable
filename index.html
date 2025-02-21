@@ -85,14 +85,14 @@
         }
 
         /* Light Overlay that scrolls with the page */
-        .overlay {
+/*       .overlay {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
             background: rgba(255, 255, 255, 0.4); /* Light semi-transparent overlay */
-            z-index: -1; /* Keeps it behind the content */
-        }
-
+/*            z-index: -1; /* Keeps it behind the content */
+        } 
+*/
         /* Header styles */
         header {
             text-align: center;
@@ -106,6 +106,9 @@
             margin: 20px auto;
             width: 80%;
             max-width: 1000px;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         /* Photo gallery styles */
@@ -130,6 +133,9 @@
             margin: 20px auto; /* Merge both margin rules */
             width: 80%;
             max-width: 1000px; /* Increased from 500px to accommodate wide gallery */
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .gallery-wrapper {
@@ -173,6 +179,7 @@
             height: 340px;
             object-fit: contain; /* Ensures uniform image size */
             border: 3px solid #A3B18A; /* Subtle sage green border */
+            background-clip: padding-box; /* This makes the background not extend under the border */
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
             cursor: pointer;
@@ -258,14 +265,14 @@
             text-align: center;
             background-color: rgba(255, 255, 255, 0.6); /* Light background for readability */
             padding: 20px;
-            /* border-radius: 10px; */
-            /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .location iframe,
         .availability iframe {
             width: 100%; /* Ensures they take full width of their container */
-            height: 450px; /* Forces both map and calendar to have same height */
+            height: 550px; /* Forces both map and calendar to have same height */
             max-width: 450px; /* Prevents it from being too large */
             border-radius: 8px; /* Rounded corners for iframes */
         }
@@ -277,8 +284,8 @@
             margin: 40px auto; /* Centers the section horizontally */
             padding: 20px;
             background-color: rgba(255, 255, 255, 0.6);
-            /* border-radius: 10px; */
-            /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         /* Footer styles */

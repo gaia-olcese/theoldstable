@@ -139,7 +139,7 @@
             gap: 10px;
             position: relative;
             width: 100%;
-            max-width: 5000px; /* Ensure enough space for buttons */
+            max-width: none;
             margin: auto;
             overflow: hidden;
         }
@@ -147,7 +147,7 @@
         
         /* Horizontal gallery container */
         .gallery-container {
-            width: 100%; /* Limits gallery width */
+            width: 100vw; /* Limits gallery width */
             max-width: 4500px; /* Ensures it doesn’t stretch too wide */
             margin: auto; /* Centers it */
             /* overflow-x: auto; /* Enables horizontal scrolling */
@@ -162,6 +162,8 @@
         .gallery {
             display: flex;
             gap: 10px;
+            flex-wrap: nowrap; /* Prevent images from wrapping */
+            width: max-content; /* Ensure the flex container grows */
         }
         
         /* Gallery images */

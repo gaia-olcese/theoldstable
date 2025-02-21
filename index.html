@@ -260,9 +260,17 @@
         .location iframe,
         .availability iframe {
             width: 100%; /* Ensures they take full width of their container */
-            height: 340px;
+            height: 440px;
             max-width: 650px; /* Prevents it from being too large */
+            max-height: 60vh; /* Prevents it from taking up too much space on small screens */
             border-radius: 8px; /* Rounded corners for iframes */
+        }
+        /* Adjust for smaller screens */
+        @media (max-width: 600px) {
+            .location iframe,
+            .availability iframe {
+                height: 300px; /* Reduce height for smaller screens */
+            }
         }
 
         .contact {

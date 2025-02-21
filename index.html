@@ -169,7 +169,7 @@
         .gallery img {
             width: 500px; 
             height: 340px;
-            object-fit: cover; /* Ensures uniform image size */
+            object-fit: contain;
             background-clip: padding-box;
             border: 3px solid #A3B18A;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -262,7 +262,7 @@
         .availability iframe {
             width: 100%; /* Ensures they take full width of their container */
             height: 550px; /* Forces both map and calendar to have same height */
-            max-width: 450px; /* Prevents it from being too large */
+            max-width: 650px; /* Prevents it from being too large */
             border-radius: 8px; /* Rounded corners for iframes */
         }
 

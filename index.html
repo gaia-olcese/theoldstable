@@ -169,9 +169,9 @@
         
         /* Gallery images */
         .gallery img {
-            width: 300px; /* Reduced from 500px for better viewing */
-            height: 240px; /* Reduced from 400px proportionally */
-            object-fit: cover; /* Ensures uniform image size */
+            width: 500px; 
+            height: 340px;
+            object-fit: contain; /* Ensures uniform image size */
             border: 3px solid #A3B18A; /* Subtle sage green border */
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -258,14 +258,14 @@
             text-align: center;
             background-color: rgba(255, 255, 255, 0.6); /* Light background for readability */
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* border-radius: 10px; */
+            /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
         }
 
         .location iframe,
         .availability iframe {
             width: 100%; /* Ensures they take full width of their container */
-            height: 350px; /* Forces both map and calendar to have same height */
+            height: 450px; /* Forces both map and calendar to have same height */
             max-width: 450px; /* Prevents it from being too large */
             border-radius: 8px; /* Rounded corners for iframes */
         }
@@ -277,8 +277,8 @@
             margin: 40px auto; /* Centers the section horizontally */
             padding: 20px;
             background-color: rgba(255, 255, 255, 0.6);
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* border-radius: 10px; */
+            /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
         }
 
         /* Footer styles */

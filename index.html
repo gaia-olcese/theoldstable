@@ -241,8 +241,8 @@
         .location-container {
             display: flex;
             justify-content: center; /* Center items horizontally */
-            align-items: start; /* Align items at the top */
-            gap: 20px; /* Increased space between location and calendar */
+            align-items: center;
+            gap: 20px;
             flex-wrap: wrap; /* Stack on smaller screens */
             width: 90%;
             max-width: 1200px;
@@ -259,7 +259,7 @@
         .location iframe,
         .availability iframe {
             width: 100%; /* Ensures they take full width of their container */
-            height: 550px; /* Forces both map and calendar to have same height */
+            height: 100%;
             max-width: 650px; /* Prevents it from being too large */
             border-radius: 8px; /* Rounded corners for iframes */
         }

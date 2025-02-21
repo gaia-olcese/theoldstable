@@ -148,7 +148,7 @@
         /* Horizontal gallery container */
         .gallery-container {
             width: 200%; /* Limits gallery width */
-            max-width: 4500px; /* Ensures it doesn’t stretch too wide */
+            max-width: 2000px; /* Ensures it doesn’t stretch too wide */
             margin: auto; /* Centers it */
             /* overflow-x: auto; /* Enables horizontal scrolling */
             overflow: hidden; /* Hide overflow to remove scrollbar */
@@ -195,6 +195,7 @@
             max-width: 90%;
             max-height: 90%;
             border-radius: 10px;
+            cursor: pointer;
         }
         
         /* Close Button */
@@ -222,11 +223,11 @@
         }
         
         .scroll-button.left {
-            left: 10px;  /* Adjust to be inside the container */
+            left: -10px;  
         }
         
         .scroll-button.right {
-            right: 10px;  /* Adjust to be inside the container */
+            right: -10px; 
         }
         
         .location-container {

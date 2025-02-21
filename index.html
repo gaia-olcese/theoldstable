@@ -161,8 +161,7 @@
         
         /* Horizontal gallery styles */
         .gallery {
-            display: flex;
-            justify-content: center;
+            display: inline-flex; /* Changed from flex to inline-flex to work with white-space: nowrap */
             gap: 10px;
             padding: 10px 0;
         }
@@ -462,5 +461,3 @@
         gallery.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
     </script>
-</body>
-</html>

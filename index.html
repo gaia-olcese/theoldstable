@@ -161,7 +161,8 @@
         
         /* Horizontal gallery styles */
         .gallery {
-            display: inline-flex; /* Changed from flex to inline-flex to work with white-space: nowrap */
+            display: flex;
+            justify-content: center;
             gap: 10px;
             padding: 10px 0;
         }
@@ -230,12 +231,12 @@
         }
         
         .scroll-button.left {
-            position: absolute;
+            position: relative;
             left: 0;  
         }
         
         .scroll-button.right {
-            position: absolute;
+            position: relative;
             right: 0; 
         }
         
@@ -316,7 +317,7 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="location.html">Location</a></li>
+                <li><a href="booking.html">Book</a></li>
             </ul>
         <div class="menu-toggle">&#9776;</div> <!-- Mobile menu icon -->
     </nav>

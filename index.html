@@ -120,6 +120,8 @@
             width: 200px;
             height: 200px; /* Ensure all images are square */
             object-fit: cover; /* Crop images while maintaining aspect ratio */
+            border: 3px solid #A3B18A; /* Subtle sage green border */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
         }
         
         /* Gallery section */
@@ -133,13 +135,14 @@
         /* Horizontal gallery container */
         .gallery-container {
             width: 100%; /* Limits gallery width */
-            max-width: 1000px; /* Ensures it doesn’t stretch too wide */
+            max-width: 2000px; /* Ensures it doesn’t stretch too wide */
             margin: auto; /* Centers it */
-            overflow-x: auto; /* Enables horizontal scrolling */
+            /* overflow-x: auto; /* Enables horizontal scrolling */
+            overflow: hidden; /* Hide overflow to remove scrollbar */
             white-space: nowrap; /* Keeps images in a row */
             padding: 10px 0; /* Adds spacing */
-            scrollbar-width: thin; /* Styles scrollbar for Firefox */
-            scrollbar-color: #A3B18A transparent; /* Custom scrollbar color */
+            /*scrollbar-width: thin; /* Styles scrollbar for Firefox */
+            /*scrollbar-color: #A3B18A transparent; /* Custom scrollbar color */
         }
 
         /* Hide scrollbar for Webkit browsers (Chrome, Safari) */
@@ -199,6 +202,29 @@
             cursor: pointer;
         }
 
+        .scroll-button {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+        
+        .scroll-button:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+        
+        .scroll-button.left {
+            position: absolute;
+            left: -40px;
+        }
+        
+        .scroll-button.right {
+            position: absolute;
+            right: -40px;
+        }
         
         .location-container {
             display: flex;
@@ -280,6 +306,8 @@
     <!-- Gallery section -->
     <section class="gallery-section">
         <h2>Gallery</h2>
+        <div class="gallery-wrapper">
+        <button class="scroll-button left" onclick="scrollGallery(-300)">&#9665;</button>
         <div class="gallery-container">
             <div class="gallery">
                 <img src="exterior.png" alt="Exterior view" onclick="openLightbox(this)">
@@ -297,6 +325,8 @@
                 <img id="lightbox-img" class="lightbox-img">
             </div>
         </div>
+        <button class="scroll-button right" onclick="scrollGallery(300)">&#9655;</button>
+        </div>  
     </section>
 
     <!-- Meet the team section -->
@@ -367,6 +397,13 @@
       function closeLightbox() {
           document.getElementById("lightbox").style.display = "none"; // Hide overlay
       }
+    </script>
+
+    <script>
+    function scrollGallery(scrollAmount) {
+        const gallery = document.querySelector('.gallery-container');
+        gallery.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
     </script>
 
     

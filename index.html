@@ -147,23 +147,24 @@
         
         /* Horizontal gallery container */
         .gallery-container {
-            width: 100vw; /* Limits gallery width */
+            width: 200%; /* Limits gallery width */
             max-width: 4500px; /* Ensures it doesn’t stretch too wide */
             margin: auto; /* Centers it */
             /* overflow-x: auto; /* Enables horizontal scrolling */
             overflow: hidden; /* Hide overflow to remove scrollbar */
             white-space: nowrap; /* Keeps images in a row */
             padding: 10px 0; /* Adds spacing */
-            /*scrollbar-width: thin; /* Styles scrollbar for Firefox */
-            /*scrollbar-color: #A3B18A transparent; /* Custom scrollbar color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
         /* Horizontal gallery styles */
         .gallery {
             display: flex;
             gap: 10px;
-            flex-wrap: nowrap; /* Prevent images from wrapping */
-            width: max-content; /* Ensure the flex container grows */
+            width: 100%; /* Ensure it fills its container */
+            justify-content: center; /* Center images */
         }
         
         /* Gallery images */

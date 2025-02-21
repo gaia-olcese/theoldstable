@@ -169,12 +169,13 @@
         .gallery img {
             width: 500px; 
             height: 340px;
-            object-fit: contain; /* Ensures uniform image size */
-            background-clip: padding-box; /* This makes the background not extend under the border */
-            border: 3px solid #A3B18A; /* Subtle sage green border */
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+            object-fit: cover; /* Ensures uniform image size */
+            background-clip: padding-box;
+            border: 3px solid #A3B18A;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
             cursor: pointer;
+            box-sizing: border-box; /* Ensures border is included in the element's dimensions */
         }
 
         .gallery img:hover {

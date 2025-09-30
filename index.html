@@ -8,6 +8,14 @@
 
     <title>The Old Stable</title>
     <style>
+            #calendar {
+          background: #fff;       /* White background */
+          padding: 10px;          /* Optional: some breathing room */
+          border-radius: 8px;     /* Optional: rounded corners */
+          box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* Optional: soft shadow */
+        }
+
+        
         /* Basic navbar styling */
         .navbar {
             display: flex;
@@ -410,6 +418,7 @@
                   url: 'https://www.airbnb.co.uk/calendar/ical/1185572450476986600.ics?s=57251e126798efa727c6bb55d98ba2d3',
                   format: 'ics' // tells FullCalendar it's an iCal feed
                 },
+                
                 eventColor: '#A3B18A', // Sage Green for booked dates
                 eventTextColor: '#fff',
                 selectable: false
@@ -496,3 +505,4 @@
         gallery.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
     </script>
+

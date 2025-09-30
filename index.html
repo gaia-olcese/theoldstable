@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+
     <title>The Old Stable</title>
     <style>
         /* Basic navbar styling */
@@ -395,7 +398,39 @@
         <!-- Availability section (LEFT) -->
         <div class="availability">
             <h2>Check our availability</h2>
-            <iframe src="https://teamup.com/ksfg3x5xxjh5bpdhvk?view=m" style="border:0;" loading="lazy"></iframe>
+            <!--<iframe src="https://teamup.com/ksfg3x5xxjh5bpdhvk?view=m" style="border:0;" loading="lazy"></iframe>-->
+            <div id="calendar"></div>
+            <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              var calendarEl = document.getElementById('calendar');
+              var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                height: 500,
+                events: {
+                  url: 'https://www.airbnb.co.uk/calendar/ical/1185572450476986600.ics?s=57251e126798efa727c6bb55d98ba2d3',
+                  format: 'ics' // tells FullCalendar it's an iCal feed
+                },
+                eventColor: '#A3B18A', // Sage Green for booked dates
+                eventTextColor: '#fff',
+                selectable: false
+              });
+              calendar.render();
+            });
+            </script>
+
+            <section class="contact">
+              <h2>Booking Request</h2>
+              <form action="mailto:theoldstable.cs@outlook.com" method="post" enctype="text/plain">
+                <label>Name:<br><input type="text" name="name" required></label><br><br>
+                <label>Email:<br><input type="email" name="email" required></label><br><br>
+                <label>Requested Dates:<br><input type="text" name="dates" placeholder="e.g. 12–14 June"></label><br><br>
+                <label>Guests:<br><input type="number" name="guests" min="1" max="3"></label><br><br>
+                <input type="submit" value="Send Request">
+              </form>
+            </section>
+
+
+            
         </div>
     </div>
 

@@ -14,8 +14,7 @@
             --primary: #2C3E35; /* Deep warm forest green */
             --primary-hover: #213029;
             --accent: #D4A373;  /* Warm wood accent */
-            --bg-color: #F9F8F6;
-            --card-bg: #FFFFFF;
+            --card-bg: rgba(255, 255, 255, 0.96);
             --text-main: #2C3330;
             --text-muted: #626C66;
             --border-color: #E2E6E3;
@@ -30,7 +29,7 @@
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-color);
+            background: #F9F8F6 url('background.jpg') center/cover fixed no-repeat;
             color: var(--text-main);
             line-height: 1.6;
         }
@@ -39,7 +38,7 @@
         header {
             position: sticky;
             top: 0;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
             display: flex;
@@ -100,12 +99,12 @@
             border-color: var(--primary-hover);
         }
 
-        /* Hero Banner */
+        /* Solid Green Hero Banner */
         .hero {
-            background: linear-gradient(135deg, #9aaea2 0%, #7f9785 100%);
+            background: var(--primary);
             color: #ffffff;
             text-align: center;
-            padding: 5.5rem 1.5rem 4.5rem 1.5rem;
+            padding: 4.5rem 1.5rem 4rem 1.5rem;
         }
 
         .hero h1 {
@@ -146,7 +145,7 @@
             border-color: #c29263;
         }
 
-        /* Layout Container */
+        /* Container over background.jpg */
         .container {
             max-width: var(--max-width);
             margin: 0 auto;
@@ -158,7 +157,7 @@
             border-radius: 20px;
             padding: 2.5rem;
             margin-bottom: 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
             border: 1px solid var(--border-color);
         }
 
@@ -206,43 +205,58 @@
             box-shadow: 0 8px 18px rgba(0,0,0,0.12);
         }
 
-        /* Team & Hosts Grid */
+        /* Playful Team & Hosts Grid */
         .hosts-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 1.5rem;
             margin-top: 2rem;
-            text-align: center;
         }
 
         .host-card {
             background: #FAFBF9;
-            padding: 1.5rem 1rem;
+            padding: 1.75rem 1.25rem;
             border-radius: 16px;
             border: 1px solid var(--border-color);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .host-card img {
-            width: 110px;
-            height: 110px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 0.8rem;
-            border: 3px solid #ffffff;
+            margin-bottom: 1rem;
+            border: 4px solid #ffffff;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
         .host-card h4 {
-            font-size: 1.05rem;
+            font-size: 1.15rem;
             color: var(--primary);
-            font-weight: 600;
+            font-weight: 700;
         }
 
-        /* Location Grid */
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+        .host-badge {
+            display: inline-block;
+            background: rgba(212, 163, 115, 0.2);
+            color: #9C6C3B;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            margin: 0.4rem 0 0.8rem 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .host-card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.45;
         }
 
         /* Calendar Container Styling */
@@ -264,6 +278,13 @@
             display: block;
         }
 
+        /* Location Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
         .contact-box {
             background: var(--primary);
             color: #ffffff;
@@ -271,6 +292,7 @@
             padding: 2.5rem;
             text-align: center;
             border: 1px solid var(--primary);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
         }
 
         .contact-box h2 {
@@ -296,10 +318,9 @@
             color: var(--text-muted);
             font-size: 0.9rem;
             border-top: 1px solid var(--border-color);
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.96);
         }
 
-        /* Responsive Breakpoints */
         @media(max-width: 820px) {
             .info-grid {
                 grid-template-columns: 1fr;
@@ -327,13 +348,13 @@
         </div>
     </header>
 
-    <!-- Green Hero Banner -->
-    <section class="hero" style="border-radius: 0; border: none;">
+    <!-- Solid Green Hero Banner -->
+    <section class="hero" style="border-radius: 0; border: none; box-shadow: none;">
         <h1>Welcome to The Old Stable</h1>
         <p>A cosy two-floor guest house located right behind Chipping Sodbury High Street, on the edge of the Cotswolds.</p>
         <div class="hero-buttons">
             <a href="mailto:theoldstable.cs@outlook.com" class="btn btn-accent">✉️ Email for Best Rate</a>
-            <a href="https://www.airbnb.co.uk/rooms/1185572450476986600?guests=1&adults=1&s=67&unique_share_id=c0d5f85c-7058-4e52-8c38-efd1c77179bb" target="_blank" class="btn btn-outline" style="border-color: rgba(255,255,255,0.8); color: #ffffff; background: rgba(255,255,255,0.08);">Book Now</a>
+            <a href="https://www.airbnb.co.uk/rooms/1185572450476986600?guests=1&adults=1&s=67&unique_share_id=c0d5f85c-7058-4e52-8c38-efd1c77179bb" target="_blank" class="btn btn-outline" style="border-color: #ffffff; color: #ffffff;">View on Airbnb</a>
         </div>
     </section>
 
@@ -347,7 +368,7 @@
             <p><strong>Upper Floor:</strong> Bedroom with a double bed, wardrobe, and a compact bathroom.</p>
             
             <div class="notice-box">
-                ℹ️ <strong>Please Note:</strong> The shower is quite short (if you are over 6ft tall, it might be a tight squeeze!) and the stairs are narrow and steep, so the space is not suitable for everyone.
+                ℹ️ <strong>Please Note:</strong> The shower is quite short (if you are over 6ft tall, it might be a tight squeeze!) and the stairs are narrow and steep, so the space is not suitable for guests with mobility issues.
             </div>
         </section>
 
@@ -366,7 +387,7 @@
             </div>
         </section>
 
-        <!-- Availability Section with Live Teamup Calendar -->
+        <!-- Availability Section -->
         <section>
             <h2>Check Our Availability</h2>
             <p>Check available dates on our calendar below. To get the best direct price, email us with your preferred dates or book through Airbnb.</p>
@@ -376,27 +397,30 @@
             </div>
         </section>
 
-        <!-- Meet the Team -->
+        <!-- Funner "Meet the Management" Section -->
         <section>
-            <h2>Meet Your Hosts</h2>
-            <p>The Old Stable is entirely managed by us, Gaia and Adam. We live at the same address and have recently renovated and decorated the space for your stay.</p>
-            <p>We try our best to greet you upon arrival, but a lockbox is also available for smooth self check-in and check-out at your convenience.</p>
+            <h2>Meet the Management Team 🐾</h2>
+            <p>The Old Stable is co-managed by humans Gaia and Adam, alongside our highly demanding feline supervisors. We live on-site and recently renovated the space to make it as cozy as possible for your stay!</p>
+            <p>We'll do our best to welcome you in person, but a secure lockbox is available for hassle-free self check-in whenever you arrive.</p>
             
             <div class="hosts-grid">
                 <div class="host-card">
                     <img src="gaia_adam.jpg" alt="Gaia & Adam">
                     <h4>Gaia & Adam</h4>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">Your Hosts</p>
+                    <span class="host-badge">Human Operations & Logistics</span>
+                    <p>In charge of key handovers, fresh linens, message responses, and keeping the cats' treat bowls filled.</p>
                 </div>
                 <div class="host-card">
                     <img src="nya.jpg" alt="Nya">
                     <h4>Nya</h4>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">Purr-fect Assistant</p>
+                    <span class="host-badge">Chief Treat Officer 🐾</span>
+                    <p>Head of garden security and quality control. May occasionally supervise your check-in from a sunspot.</p>
                 </div>
                 <div class="host-card">
                     <img src="freya.jpg" alt="Freya">
                     <h4>Freya</h4>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">Purr-fect Assistant</p>
+                    <span class="host-badge">Senior Nap Specialist 💤</span>
+                    <p>In charge of atmosphere testing and lap-warmth inspections. Prefers quiet afternoons and gentle ear scratches.</p>
                 </div>
             </div>
         </section>
@@ -414,7 +438,7 @@
                 <p>Drop us an email directly for the best rates, or book through Airbnb.</p>
                 <div class="contact-box-actions">
                     <a href="mailto:theoldstable.cs@outlook.com" class="btn btn-accent">✉️ theoldstable.cs@outlook.com</a>
-                    <a href="https://www.airbnb.co.uk/rooms/1185572450476986600?guests=1&adults=1&s=67&unique_share_id=c0d5f85c-7058-4e52-8c38-efd1c77179bb" target="_blank" class="btn btn-outline" style="border-color: rgba(255,255,255,0.8); color: #ffffff; background: rgba(255,255,255,0.08);">Book via Airbnb</a>
+                    <a href="https://www.airbnb.co.uk/rooms/1185572450476986600?guests=1&adults=1&s=67&unique_share_id=c0d5f85c-7058-4e52-8c38-efd1c77179bb" target="_blank" class="btn btn-outline" style="border-color: #ffffff; color: #ffffff;">View Airbnb Listing</a>
                 </div>
             </div>
         </div>

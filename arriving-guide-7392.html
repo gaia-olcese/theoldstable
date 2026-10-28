@@ -31,7 +31,7 @@
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.5;
-      padding-bottom: 90px; /* space for sticky bar */
+      padding-bottom: 100px;
     }
 
     header {
@@ -92,24 +92,25 @@
 
     .action-buttons {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap;
     }
 
     .btn {
       flex: 1;
-      min-width: 130px;
+      min-width: 120px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 12px 16px;
-      font-size: 0.9rem;
+      padding: 10px 14px;
+      font-size: 0.88rem;
       font-weight: 600;
       border-radius: 10px;
       text-decoration: none;
       cursor: pointer;
       border: none;
       transition: all 0.2s ease;
+      text-align: center;
     }
 
     .btn-primary {
@@ -131,9 +132,10 @@
       background: #dbeafe;
     }
 
-    /* Steps Section */
-    .step-card {
-      position: relative;
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 1px solid var(--primary);
     }
 
     .step-header {
@@ -166,7 +168,7 @@
     .step-description {
       color: var(--text-muted);
       font-size: 0.95rem;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
 
     .step-image {
@@ -175,6 +177,7 @@
       object-fit: cover;
       border: 1px solid var(--border);
       display: block;
+      margin-top: 10px;
     }
 
     .callout {
@@ -182,7 +185,7 @@
       border-left: 4px solid #f59e0b;
       padding: 12px;
       border-radius: 6px;
-      margin-top: 10px;
+      margin-top: 12px;
       font-size: 0.9rem;
       color: #92400e;
     }
@@ -191,7 +194,27 @@
       color: #78350f;
     }
 
-    /* Sticky Bottom Bar */
+    .direct-booking-banner {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      border-radius: var(--radius);
+      padding: 16px;
+      text-align: center;
+      margin-top: 24px;
+    }
+
+    .direct-booking-banner h3 {
+      color: #065f46;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .direct-booking-banner p {
+      color: #047857;
+      font-size: 0.88rem;
+      margin-bottom: 12px;
+    }
+
     .sticky-bar {
       position: fixed;
       bottom: 0;
@@ -199,7 +222,7 @@
       right: 0;
       background: white;
       border-top: 1px solid var(--border);
-      padding: 12px 16px;
+      padding: 10px 14px;
       box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.08);
       z-index: 100;
     }
@@ -208,10 +231,9 @@
       max-width: 600px;
       margin: 0 auto;
       display: flex;
-      gap: 10px;
+      gap: 8px;
     }
 
-    /* Copy notification toast */
     .toast {
       position: fixed;
       top: 20px;
@@ -244,7 +266,7 @@
 
   <div class="container">
 
-    <!-- Address & Nav Card -->
+    <!-- Address Card -->
     <div class="card address-card">
       <h2>Drive to Melbourne Drive</h2>
       <p class="step-description">
@@ -256,11 +278,12 @@
       <div class="action-buttons">
         <button class="btn btn-secondary" onclick="copyAddress()">📋 Copy Address</button>
         <a class="btn btn-primary" href="https://maps.google.com/?q=56+Melbourne+Drive,+Chipping+Sodbury,+Bristol+BS37+6LB" target="_blank">🗺️ Google Maps</a>
+        <a class="btn btn-outline" href="https://theoldstable-cs.co.uk" target="_blank">🌐 Our Website</a>
       </div>
     </div>
 
     <!-- Step 1 -->
-    <div class="card step-card">
+    <div class="card">
       <div class="step-header">
         <div class="step-number">1</div>
         <div class="step-title">Find the Entrance Gate</div>
@@ -268,51 +291,75 @@
       <p class="step-description">
         Opposite <strong>no. 56</strong>, look for a small green gate with a sign for <strong>"17 Horse Street - rear entrance"</strong>.
       </p>
+      <img src="step-1.jpg" alt="Green entrance gate opposite 56 Melbourne Drive" class="step-image">
       <div class="callout">
         🔓 <strong>Gate Access:</strong> The gate is not locked! Just slide the latch handle to the right to open.
       </div>
     </div>
 
     <!-- Step 2 -->
-    <div class="card step-card">
+    <div class="card">
       <div class="step-header">
         <div class="step-number">2</div>
-        <div class="step-title">Follow the Path Through the Garden</div>
+        <div class="step-title">Follow the Garden Path (Straight On)</div>
       </div>
       <p class="step-description">
-        The back entrance and garden path are shared between numbers 13, 15, and 17. Go straight along the gravel path and then curve around to the right.
+        The back entrance and part of the garden are shared between numbers 13, 15, and 17. Head straight along the paved path alongside the wall.
       </p>
+      <img src="step-2.jpg" alt="Straight garden path with wall on the right" class="step-image">
     </div>
 
     <!-- Step 3 -->
-    <div class="card step-card">
+    <div class="card">
       <div class="step-header">
         <div class="step-number">3</div>
-        <div class="step-title">Enter the Courtyard</div>
+        <div class="step-title">Continue Path around to the Right</div>
       </div>
       <p class="step-description">
-        Keep following the path. On your left, you will find a small courtyard. The guest house is situated on the left-hand side.
+        Keep following the garden path as it curves around to the right past the seating area.
       </p>
+      <img src="step-3.jpg" alt="Garden path curving right past table and garden" class="step-image">
     </div>
 
     <!-- Step 4 -->
-    <div class="card step-card">
+    <div class="card">
       <div class="step-header">
         <div class="step-number">4</div>
+        <div class="step-title">Enter the Small Courtyard</div>
+      </div>
+      <p class="step-description">
+        On your left, you will find a small courtyard. The guest house entrance is on the left side!
+      </p>
+      <img src="step-4.jpg" alt="Wooden fence and courtyard on left side" class="step-image">
+    </div>
+
+    <!-- Step 5 -->
+    <div class="card">
+      <div class="step-header">
+        <div class="step-number">5</div>
         <div class="step-title">You Have Arrived!</div>
       </div>
       <p class="step-description">
-        Welcome to The Old Stable! You've reached your accommodation.
+        Welcome to The Old Stable! You have reached your accommodation.
       </p>
+      <img src="step-5.jpg" alt="Front patio glass doors of The Old Stable" class="step-image">
+    </div>
+
+    <!-- Direct Booking Callout Banner for Future Stays -->
+    <div class="direct-booking-banner">
+      <h3>🏡 Planning a Future Return Visit?</h3>
+      <p>Book directly through our website to enjoy best rates and zero platform fees!</p>
+      <a class="btn btn-primary" href="https://theoldstable-cs.co.uk" target="_blank">Visit theoldstable-cs.co.uk</a>
     </div>
 
   </div>
 
-  <!-- Fixed Bottom Navigation Bar for Mobile -->
+  <!-- Sticky Bottom Navigation Bar -->
   <div class="sticky-bar">
     <div class="sticky-container">
-      <button class="btn btn-secondary" onclick="copyAddress()">📋 Copy Address</button>
-      <a class="btn btn-primary" href="https://maps.google.com/?q=56+Melbourne+Drive,+Chipping+Sodbury,+Bristol+BS37+6LB" target="_blank">🗺️ Open Map</a>
+      <button class="btn btn-secondary" onclick="copyAddress()">📋 Address</button>
+      <a class="btn btn-primary" href="https://maps.google.com/?q=56+Melbourne+Drive,+Chipping+Sodbury,+Bristol+BS37+6LB" target="_blank">🗺️ Map</a>
+      <a class="btn btn-outline" href="https://theoldstable-cs.co.uk" target="_blank">🌐 Website</a>
     </div>
   </div>
 

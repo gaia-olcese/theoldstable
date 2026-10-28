@@ -8,12 +8,13 @@
   <meta name="robots" content="noindex, nofollow">
   <style>
     :root {
-      --primary: #1e3a8a;
-      --primary-light: #eff6ff;
-      --accent: #2563eb;
-      --text: #1f2937;
-      --text-muted: #4b5563;
-      --bg: #f8fafc;
+      --primary: #2d3748;        /* Cotswold Slate Gray Header */
+      --primary-light: #f7fafc;  /* Warm Light Gray Container */
+      --accent: #1a365d;         /* Deep Navy Accent */
+      --accent-hover: #0f2942;
+      --text: #1a202c;           /* Charcoal Text */
+      --text-muted: #4a5568;     /* Muted Dark Slate */
+      --bg: #f4f1ea;             /* Warm Stone/Cotswold Background */
       --card-bg: #ffffff;
       --border: #e2e8f0;
       --radius: 16px;
@@ -51,7 +52,7 @@
 
     header p {
       font-size: 0.9rem;
-      color: #bfdbfe;
+      color: #e2e8f0;
       margin-top: 4px;
     }
 
@@ -71,8 +72,8 @@
     }
 
     .address-card {
-      background: var(--primary-light);
-      border-color: #bfdbfe;
+      background: #ffffff;
+      border-color: #cbd5e0;
     }
 
     .address-card h2 {
@@ -119,23 +120,23 @@
     }
 
     .btn-primary:active {
-      background: #1d4ed8;
+      background: var(--accent-hover);
     }
 
     .btn-secondary {
-      background: white;
+      background: #edf2f7;
       color: var(--primary);
-      border: 1px solid #bfdbfe;
+      border: 1px solid #cbd5e0;
     }
 
     .btn-secondary:active {
-      background: #dbeafe;
+      background: #e2e8f0;
     }
 
     .btn-outline {
       background: transparent;
-      color: var(--primary);
-      border: 1px solid var(--primary);
+      color: var(--accent);
+      border: 1px solid var(--accent);
     }
 
     .step-header {
@@ -181,22 +182,32 @@
     }
 
     .callout {
-      background: #fef3c7;
-      border-left: 4px solid #f59e0b;
+      background: #fefcbf;
+      border-left: 4px solid #d69e2e;
       padding: 12px;
       border-radius: 6px;
       margin-top: 12px;
       font-size: 0.9rem;
-      color: #92400e;
+      color: #744210;
     }
 
     .callout strong {
-      color: #78350f;
+      color: #521b02;
+    }
+
+    .callout-blue {
+      background: #ebf8ff;
+      border-left: 4px solid #3182ce;
+      padding: 12px;
+      border-radius: 6px;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      color: #2b6cb0;
     }
 
     .direct-booking-banner {
-      background: #ecfdf5;
-      border: 1px solid #a7f3d0;
+      background: #f0fff4;
+      border: 1px solid #c6f6d5;
       border-radius: var(--radius);
       padding: 16px;
       text-align: center;
@@ -204,13 +215,13 @@
     }
 
     .direct-booking-banner h3 {
-      color: #065f46;
+      color: #22543d;
       font-size: 1rem;
       margin-bottom: 6px;
     }
 
     .direct-booking-banner p {
-      color: #047857;
+      color: #276749;
       font-size: 0.88rem;
       margin-bottom: 12px;
     }
@@ -239,7 +250,7 @@
       top: 20px;
       left: 50%;
       transform: translateX(-50%) translateY(-100px);
-      background: #10b981;
+      background: #38a169;
       color: white;
       padding: 10px 20px;
       border-radius: 30px;
@@ -266,18 +277,23 @@
 
   <div class="container">
 
-    <!-- Address Card -->
+    <!-- Address & Parking Card -->
     <div class="card address-card">
       <h2>Drive to Melbourne Drive</h2>
       <p class="step-description">
-        Private access to the guest house is located at the back of the property on Melbourne Drive.
+        Private access to the guest house is from the back of the property, on Melbourne Drive.
       </p>
       <div class="address-text">
         📍 56 Melbourne Drive, Chipping Sodbury, Bristol BS37 6LB
       </div>
-      <div class="action-buttons">
+      
+      <div class="callout-blue">
+        🚗 <strong>Parking Info:</strong> If you are driving, the best place to park is Melbourne Drive. Drive all the way towards the end, as there is normally plenty of on-street parking around there.
+      </div>
+
+      <div class="action-buttons" style="margin-top: 14px;">
         <button class="btn btn-secondary" onclick="copyAddress()">📋 Copy Address</button>
-        <a class="btn btn-primary" href="https://maps.google.com/?q=56+Melbourne+Drive,+Chipping+Sodbury,+Bristol+BS37+6LB" target="_blank">🗺️ Google Maps</a>
+        <a class="btn btn-primary" href="https://maps.app.goo.gl/on9EPtatrtstPENi8" target="_blank">🗺️ Google Maps</a>
         <a class="btn btn-outline" href="https://theoldstable-cs.co.uk" target="_blank">🌐 Our Website</a>
       </div>
     </div>
@@ -337,12 +353,17 @@
     <div class="card">
       <div class="step-header">
         <div class="step-number">5</div>
-        <div class="step-title">You Have Arrived!</div>
+        <div class="step-title">You Have Arrived & Entering</div>
       </div>
       <p class="step-description">
         Welcome to The Old Stable! You have reached your accommodation.
       </p>
       <img src="step-5.jpg" alt="Front patio glass doors of The Old Stable" class="step-image">
+      
+      <div class="callout">
+        🔑 <strong>Door & Key Instructions:</strong> You can open the left door using the key.<br><br>
+        🔒 <strong>To Lock:</strong> Push the door handle up before turning the key!
+      </div>
     </div>
 
     <!-- Direct Booking Callout Banner for Future Stays -->
@@ -358,7 +379,7 @@
   <div class="sticky-bar">
     <div class="sticky-container">
       <button class="btn btn-secondary" onclick="copyAddress()">📋 Address</button>
-      <a class="btn btn-primary" href="https://maps.google.com/?q=56+Melbourne+Drive,+Chipping+Sodbury,+Bristol+BS37+6LB" target="_blank">🗺️ Map</a>
+      <a class="btn btn-primary" href="https://maps.app.goo.gl/on9EPtatrtstPENi8" target="_blank">🗺️ Map</a>
       <a class="btn btn-outline" href="https://theoldstable-cs.co.uk" target="_blank">🌐 Website</a>
     </div>
   </div>

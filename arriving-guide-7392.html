@@ -8,13 +8,13 @@
   <meta name="robots" content="noindex, nofollow">
   <style>
     :root {
-      --primary: #2d3748;        /* Cotswold Slate Gray Header */
-      --primary-light: #f7fafc;  /* Warm Light Gray Container */
-      --accent: #1a365d;         /* Deep Navy Accent */
-      --accent-hover: #0f2942;
+      --primary: #1b4332;        /* Rich Forest Green Header */
+      --primary-light: #f2f7f4;  /* Soft Greenish Tint Container */
+      --accent: #2d6a4f;         /* Deep Sage Green Accent */
+      --accent-hover: #1b4332;
       --text: #1a202c;           /* Charcoal Text */
       --text-muted: #4a5568;     /* Muted Dark Slate */
-      --bg: #f4f1ea;             /* Warm Stone/Cotswold Background */
+      --bg: #fdfbf7;             /* Main Website Warm Off-White Background */
       --card-bg: #ffffff;
       --border: #e2e8f0;
       --radius: 16px;
@@ -52,7 +52,7 @@
 
     header p {
       font-size: 0.9rem;
-      color: #e2e8f0;
+      color: #d8f3dc;
       margin-top: 4px;
     }
 
@@ -82,13 +82,6 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
       margin-bottom: 8px;
-    }
-
-    .address-text {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 12px;
     }
 
     .action-buttons {
@@ -244,31 +237,9 @@
       display: flex;
       gap: 8px;
     }
-
-    .toast {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%) translateY(-100px);
-      background: #38a169;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 30px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      transition: transform 0.3s ease;
-      z-index: 1000;
-    }
-
-    .toast.show {
-      transform: translateX(-50%) translateY(0);
-    }
   </style>
 </head>
 <body>
-
-  <div id="toast" class="toast">Address copied to clipboard!</div>
 
   <header>
     <h1>How To Find Us</h1>
@@ -277,23 +248,19 @@
 
   <div class="container">
 
-    <!-- Address & Parking Card -->
+    <!-- Access & Parking Card -->
     <div class="card address-card">
-      <h2>Drive to Melbourne Drive</h2>
+      <h2>Arriving via Melbourne Drive</h2>
       <p class="step-description">
-        Private access to the guest house is from the back of the property, on Melbourne Drive.
+        Private access to the guest house is located from the back of the property, on Melbourne Drive.
       </p>
-      <div class="address-text">
-        📍 56 Melbourne Drive, Chipping Sodbury, Bristol BS37 6LB
-      </div>
-      
+
       <div class="callout-blue">
         🚗 <strong>Parking Info:</strong> If you are driving, the best place to park is Melbourne Drive. Drive all the way towards the end, as there is normally plenty of on-street parking around there.
       </div>
 
       <div class="action-buttons" style="margin-top: 14px;">
-        <button class="btn btn-secondary" onclick="copyAddress()">📋 Copy Address</button>
-        <a class="btn btn-primary" href="https://maps.app.goo.gl/on9EPtatrtstPENi8" target="_blank">🗺️ Google Maps</a>
+        <a class="btn btn-primary" href="https://maps.app.goo.gl/on9EPtatrtstPENi8" target="_blank">📍 Google Profile & Directions</a>
         <a class="btn btn-outline" href="https://theoldstable-cs.co.uk" target="_blank">🌐 Our Website</a>
       </div>
     </div>
@@ -320,9 +287,9 @@
         <div class="step-title">Follow the Garden Path (Straight On)</div>
       </div>
       <p class="step-description">
-        The back entrance and part of the garden are shared between numbers 13, 15, and 17. Head straight along the paved path alongside the wall.
+        The back entrance and part of the garden are shared between numbers 15, 17, and 21. Head straight along the paved path.
       </p>
-      <img src="step-2.jpg" alt="Straight garden path with wall on the right" class="step-image">
+      <img src="step-2.jpg" alt="Straight garden path" class="step-image">
     </div>
 
     <!-- Step 3 -->
@@ -378,24 +345,10 @@
   <!-- Sticky Bottom Navigation Bar -->
   <div class="sticky-bar">
     <div class="sticky-container">
-      <button class="btn btn-secondary" onclick="copyAddress()">📋 Address</button>
-      <a class="btn btn-primary" href="https://maps.app.goo.gl/on9EPtatrtstPENi8" target="_blank">🗺️ Map</a>
+      <a class="btn btn-primary" href="https://maps.app.goo.gl/on9EPtatrtstPENi8" target="_blank">📍 Google Map & Directions</a>
       <a class="btn btn-outline" href="https://theoldstable-cs.co.uk" target="_blank">🌐 Website</a>
     </div>
   </div>
-
-  <script>
-    function copyAddress() {
-      const address = "56 Melbourne Drive, Chipping Sodbury, Bristol BS37 6LB";
-      navigator.clipboard.writeText(address).then(() => {
-        const toast = document.getElementById('toast');
-        toast.classList.add('show');
-        setTimeout(() => {
-          toast.classList.remove('show');
-        }, 2500);
-      });
-    }
-  </script>
 
 </body>
 </html>

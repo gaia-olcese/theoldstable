@@ -6,33 +6,48 @@
   <title>How To Find Us - The Old Stable</title>
   <!-- Prevent Search Engines from indexing this unlisted guest guide -->
   <meta name="robots" content="noindex, nofollow">
+
+  <!-- Match main site typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --primary: #1b4332;        /* Rich Forest Green Header */
-      --primary-light: #f2f7f4;  /* Soft Greenish Tint Container */
-      --accent: #2d6a4f;         /* Deep Sage Green Accent */
+      --primary: #1b4332;
+      --primary-light: #f2f7f4;
+      --accent: #2d6a4f;
       --accent-hover: #1b4332;
-      --text: #1a202c;           /* Charcoal Text */
-      --text-muted: #4a5568;     /* Muted Dark Slate */
-      --bg: #fdfbf7;             /* Main Website Warm Off-White Background */
-      --card-bg: #ffffff;
+      --text: #1a202c;
+      --text-muted: #4a5568;
+      --bg: #fdfbf7;
+      --card-bg: rgba(255, 255, 255, 0.96);
       --border: #e2e8f0;
       --radius: 16px;
       --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+
+      /* Match main site typography exactly */
+      --font-primary: 'Plus Jakarta Sans', sans-serif;
+      --font-weight-regular: 400;
+      --font-weight-medium: 500;
+      --font-weight-semibold: 600;
+      --font-weight-bold: 700;
+      --line-height-base: 1.6;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: var(--font-primary);
     }
 
     body {
-      background-color: var(--bg);
+      background: #f9f8f6 url('background.jpg') center/cover fixed no-repeat;
       color: var(--text);
-      line-height: 1.5;
+      line-height: var(--line-height-base);
       padding-bottom: 100px;
+      font-family: var(--font-primary);
     }
 
     header {
@@ -45,15 +60,18 @@
 
     header h1 {
       font-size: 1.5rem;
-      font-weight: 700;
+      font-weight: var(--font-weight-bold);
       letter-spacing: 0.5px;
       text-transform: uppercase;
+      font-family: var(--font-primary);
     }
 
     header p {
       font-size: 0.9rem;
       color: #d8f3dc;
       margin-top: 4px;
+      font-family: var(--font-primary);
+      line-height: var(--line-height-base);
     }
 
     .container {
@@ -69,10 +87,11 @@
       box-shadow: var(--shadow);
       padding: 20px;
       margin-bottom: 20px;
+      backdrop-filter: blur(2px);
     }
 
     .address-card {
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.96);
       border-color: #cbd5e0;
     }
 
@@ -82,6 +101,8 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
       margin-bottom: 8px;
+      font-family: var(--font-primary);
+      font-weight: var(--font-weight-bold);
     }
 
     .action-buttons {
@@ -98,13 +119,15 @@
       justify-content: center;
       padding: 10px 14px;
       font-size: 0.88rem;
-      font-weight: 600;
+      font-weight: var(--font-weight-semibold);
       border-radius: 10px;
       text-decoration: none;
       cursor: pointer;
       border: none;
       transition: all 0.2s ease;
       text-align: center;
+      font-family: var(--font-primary);
+      line-height: var(--line-height-base);
     }
 
     .btn-primary {
@@ -148,21 +171,26 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 700;
+      font-weight: var(--font-weight-bold);
       font-size: 1rem;
       flex-shrink: 0;
+      font-family: var(--font-primary);
     }
 
     .step-title {
       font-size: 1.1rem;
-      font-weight: 700;
+      font-weight: var(--font-weight-bold);
       color: var(--primary);
+      font-family: var(--font-primary);
     }
 
     .step-description {
       color: var(--text-muted);
       font-size: 0.95rem;
       margin-bottom: 10px;
+      font-family: var(--font-primary);
+      line-height: var(--line-height-base);
+      font-weight: var(--font-weight-regular);
     }
 
     .step-image {
@@ -182,6 +210,8 @@
       margin-top: 12px;
       font-size: 0.9rem;
       color: #744210;
+      font-family: var(--font-primary);
+      line-height: var(--line-height-base);
     }
 
     .callout strong {
@@ -196,10 +226,12 @@
       margin-top: 12px;
       font-size: 0.9rem;
       color: #2b6cb0;
+      font-family: var(--font-primary);
+      line-height: var(--line-height-base);
     }
 
     .direct-booking-banner {
-      background: #f0fff4;
+      background: rgba(240, 255, 244, 0.96);
       border: 1px solid #c6f6d5;
       border-radius: var(--radius);
       padding: 16px;
@@ -211,12 +243,16 @@
       color: #22543d;
       font-size: 1rem;
       margin-bottom: 6px;
+      font-family: var(--font-primary);
+      font-weight: var(--font-weight-bold);
     }
 
     .direct-booking-banner p {
       color: #276749;
       font-size: 0.88rem;
       margin-bottom: 12px;
+      font-family: var(--font-primary);
+      line-height: var(--line-height-base);
     }
 
     .sticky-bar {
@@ -224,7 +260,7 @@
       bottom: 0;
       left: 0;
       right: 0;
-      background: white;
+      background: rgba(255, 255, 255, 0.96);
       border-top: 1px solid var(--border);
       padding: 10px 14px;
       box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.08);
@@ -256,12 +292,12 @@
       </p>
 
       <div class="callout-blue">
-        🚗 <strong>Parking Info:</strong> If you are driving, the best place to park is Melbourne Drive. Drive all the way towards the end, as there is normally plenty of on-street parking around there.
+        🚗 <strong>Parking Info:</strong> If you are driving, the best place to park is Melbourne Drive. Drive all the way towards the end, as there is normally plenty of on-street parking around the back of the property.
       </div>
 
       <div class="action-buttons" style="margin-top: 14px;">
-        <a class="btn btn-primary" href="https://maps.app.goo.gl/on9EPtatrtstPENi8" target="_blank">📍 Google Profile & Directions</a>
-        <a class="btn btn-outline" href="https://theoldstable-cs.co.uk" target="_blank">🌐 Our website</a>
+        <a class="btn btn-primary" href="https://maps.app.goo.gl/on9EPtatrtstPENi8" target="_blank" rel="noopener noreferrer">📍 Google Profile & Directions</a>
+        <a class="btn btn-outline" href="https://theoldstable-cs.co.uk" target="_blank" rel="noopener noreferrer">🌐 Our website</a>
       </div>
     </div>
 
@@ -337,7 +373,7 @@
     <div class="direct-booking-banner">
       <h3>🏡 Planning another visit?</h3>
       <p>Book directly through our website to enjoy best rates and zero platform fees!</p>
-      <a class="btn btn-primary" href="https://theoldstable-cs.co.uk" target="_blank">Visit theoldstable-cs.co.uk</a>
+      <a class="btn btn-primary" href="https://theoldstable-cs.co.uk" target="_blank" rel="noopener noreferrer">Visit theoldstable-cs.co.uk</a>
     </div>
 
   </div>
@@ -345,8 +381,8 @@
   <!-- Sticky Bottom Navigation Bar -->
   <div class="sticky-bar">
     <div class="sticky-container">
-      <a class="btn btn-primary" href="https://maps.app.goo.gl/on9EPtatrtstPENi8" target="_blank">📍 Google Map & Directions</a>
-      <a class="btn btn-outline" href="https://theoldstable-cs.co.uk" target="_blank">🌐 Website</a>
+      <a class="btn btn-primary" href="https://maps.app.goo.gl/on9EPtatrtstPENi8" target="_blank" rel="noopener noreferrer">📍 Google Map & Directions</a>
+      <a class="btn btn-outline" href="https://theoldstable-cs.co.uk" target="_blank" rel="noopener noreferrer">🌐 Website</a>
     </div>
   </div>
 

@@ -275,6 +275,7 @@
             cursor: pointer;
             transition: all 0.15s ease;
             user-select: none;
+            min-height: 40px;
         }
 
         .cal-day:hover:not(.disabled):not(.empty) {
@@ -352,7 +353,7 @@
             opacity: 0.9;
         }
 
-        /* Team & Hosts Grid */
+        /* Team & Hosts Grid Fix */
         .hosts-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -379,6 +380,7 @@
             margin-bottom: 1rem;
             border: 4px solid #ffffff;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            background: #e0e0e0;
         }
 
         .host-card h4 {
@@ -556,4 +558,244 @@
             
             <div class="hosts-grid">
                 <div class="host-card">
-                    <img src="gaia_adam.
+                    <img src="gaia_adam.jpg" alt="Gaia & Adam">
+                    <h4>Gaia & Adam</h4>
+                    <span class="host-badge">Human Operations & Logistics</span>
+                    <p>In charge of key handovers, fresh linens, message responses, and keeping the cats' treat bowls filled.</p>
+                </div>
+                <div class="host-card">
+                    <img src="freya.jpg" alt="Freya">
+                    <h4>Freya</h4>
+                    <span class="host-badge">Chief Treat Officer 🐾</span>
+                    <p>Head of garden security and quality control. May occasionally supervise your check-in from a sunspot.</p>
+                </div>
+                <div class="host-card">
+                    <img src="nya.jpg" alt="Nya">
+                    <h4>Nya</h4>
+                    <span class="host-badge">Senior Nap Specialist 💤</span>
+                    <p>In charge of atmosphere testing and lap-warmth inspections. Prefers quiet afternoons and gentle ear scratches.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location & Direct Booking -->
+        <div class="info-grid">
+            <section style="margin-bottom: 0;">
+                <h2>Location & Parking</h2>
+                <p>We are located on <strong>Horse Street, Chipping Sodbury</strong>, right behind the High Street where you'll find plenty of local pubs, restaurants, and shops.</p>
+                <p style="margin-top: 1rem;">🚗 <strong>Parking:</strong> Available at the back on <strong>Melbourne Drive</strong>.</p>
+            </section>
+
+            <div class="contact-box">
+                <h2>Ready to Stay?</h2>
+                <p>Drop us an email directly for the best rates, or book through Airbnb.</p>
+                <div class="contact-box-actions">
+                    <a href="mailto:theoldstable.cs@outlook.com" class="btn btn-accent">✉️ theoldstable.cs@outlook.com</a>
+                    <a href="https://www.airbnb.co.uk/rooms/1185572450476986600?guests=1&adults=1&s=67&unique_share_id=c0d5f85c-7058-4e52-8c38-efd1c77179bb" target="_blank" class="btn btn-outline" style="border-color: #ffffff; color: #ffffff;">View Airbnb Listing</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 The Old Stable, Chipping Sodbury. All Rights Reserved.</p>
+    </footer>
+
+    <!-- iCal Sync & Calendar Widget Logic -->
+    <script>
+        const airbnbIcalUrl = 'https://www.airbnb.co.uk/calendar/ical/1185572450476986600.ics?s=57251e126798efa727c6bb55d98ba2d3';
+
+        let bookedDates = new Set();
+        let currentDate = new Date();
+        let selectedCheckIn = null;
+        let selectedCheckOut = null;
+
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+        function parseICal(data) {
+            const events = data.split('BEGIN:VEVENT');
+            events.forEach(event => {
+                const startMatch = event.match(/DTSTART;VALUE=DATE:(\d{8})/);
+                const endMatch = event.match(/DTEND;VALUE=DATE:(\d{8})/);
+                if (startMatch && endMatch) {
+                    let start = parseDateStr(startMatch[1]);
+                    let end = parseDateStr(endMatch[1]);
+                    let curr = new Date(start);
+                    while (curr < end) {
+                        bookedDates.add(formatDateKey(curr));
+                        curr.setDate(curr.getDate() + 1);
+                    }
+                }
+            });
+        }
+
+        function parseDateStr(str) {
+            const y = parseInt(str.substring(0, 4));
+            const m = parseInt(str.substring(4, 6)) - 1;
+            const d = parseInt(str.substring(6, 8));
+            return new Date(y, m, d);
+        }
+
+        function formatDateKey(date) {
+            const y = date.getFullYear();
+            const m = String(date.getMonth() + 1).padStart(2, '0');
+            const d = String(date.getDate()).padStart(2, '0');
+            return `${y}-${m}-${d}`;
+        }
+
+        function renderCalendar() {
+            const grid = document.getElementById('calendarGrid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+
+            document.getElementById('monthTitle').innerText = `${monthNames[month]} ${year}`;
+
+            dayNames.forEach(name => {
+                const dayHead = document.createElement('div');
+                dayHead.className = 'cal-day-name';
+                dayHead.innerText = name;
+                grid.appendChild(dayHead);
+            });
+
+            const firstDayIndex = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            for (let i = 0; i < firstDayIndex; i++) {
+                const emptyCell = document.createElement('div');
+                emptyCell.className = 'cal-day empty';
+                grid.appendChild(emptyCell);
+            }
+
+            const today = new Date();
+            today.setHours(0,0,0,0);
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                const cell = document.createElement('div');
+                const thisDate = new Date(year, month, day);
+                const dateKey = formatDateKey(thisDate);
+
+                cell.className = 'cal-day';
+                cell.innerText = day;
+
+                const isPast = thisDate < today;
+                const isBooked = bookedDates.has(dateKey);
+
+                if (isPast || isBooked) {
+                    cell.classList.add('disabled');
+                } else {
+                    if (selectedCheckIn && dateKey === formatDateKey(selectedCheckIn)) {
+                        cell.classList.add('selected');
+                    } else if (selectedCheckOut && dateKey === formatDateKey(selectedCheckOut)) {
+                        cell.classList.add('selected');
+                    } else if (selectedCheckIn && selectedCheckOut && thisDate > selectedCheckIn && thisDate < selectedCheckOut) {
+                        cell.classList.add('in-range');
+                    }
+
+                    cell.addEventListener('click', () => handleDateClick(thisDate));
+                }
+
+                grid.appendChild(cell);
+            }
+        }
+
+        function handleDateClick(date) {
+            if (!selectedCheckIn || (selectedCheckIn && selectedCheckOut)) {
+                selectedCheckIn = date;
+                selectedCheckOut = null;
+            } else if (selectedCheckIn && !selectedCheckOut) {
+                if (date <= selectedCheckIn) {
+                    selectedCheckIn = date;
+                } else {
+                    let hasBookedInRange = false;
+                    let check = new Date(selectedCheckIn);
+                    while (check <= date) {
+                        if (bookedDates.has(formatDateKey(check))) {
+                            hasBookedInRange = true;
+                            break;
+                        }
+                        check.setDate(check.getDate() + 1);
+                    }
+                    if (hasBookedInRange) {
+                        alert("Selected range includes booked dates. Please select an available range.");
+                        selectedCheckIn = date;
+                    } else {
+                        selectedCheckOut = date;
+                    }
+                }
+            }
+            updateSummary();
+            renderCalendar();
+        }
+
+        function updateSummary() {
+            const heading = document.getElementById('summaryHeading');
+            const subtext = document.getElementById('summarySubtext');
+            const btn = document.getElementById('emailRequestBtn');
+
+            if (selectedCheckIn && !selectedCheckOut) {
+                heading.innerText = `Check-in: ${formatDisplayDate(selectedCheckIn)}`;
+                subtext.innerText = 'Now select your Check-out date on the calendar.';
+                btn.style.display = 'none';
+            } else if (selectedCheckIn && selectedCheckOut) {
+                const diffTime = Math.abs(selectedCheckOut - selectedCheckIn);
+                const nights = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                
+                heading.innerText = `${nights} Night Stay Selected`;
+                subtext.innerText = `${formatDisplayDate(selectedCheckIn)} — ${formatDisplayDate(selectedCheckOut)}`;
+
+                const subject = encodeURIComponent(`Booking Inquiry: The Old Stable (${formatDisplayDate(selectedCheckIn)} - ${formatDisplayDate(selectedCheckOut)})`);
+                const body = encodeURIComponent(`Hi Gaia & Adam,\n\nI would like to inquire about booking The Old Stable for ${nights} night(s):\n\nCheck-in: ${formatDisplayDate(selectedCheckIn)}\nCheck-out: ${formatDisplayDate(selectedCheckOut)}\n\nPlease let me know availability and pricing details.\n\nThank you!`);
+                
+                btn.href = `mailto:theoldstable.cs@outlook.com?subject=${subject}&body=${body}`;
+                btn.style.display = 'inline-flex';
+            }
+        }
+
+        function formatDisplayDate(date) {
+            return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+        }
+
+        document.getElementById('prevMonthBtn').addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar();
+        });
+
+        document.getElementById('nextMonthBtn').addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar();
+        });
+
+        // Initialize Calendar immediately
+        renderCalendar();
+
+        // Background iCal fetch with multiple fallback proxies
+        async function loadICalData() {
+            const proxies = [
+                'https://api.allorigins.win/raw?url=' + encodeURIComponent(airbnbIcalUrl),
+                'https://corsproxy.io/?' + encodeURIComponent(airbnbIcalUrl)
+            ];
+
+            for (let proxy of proxies) {
+                try {
+                    const response = await fetch(proxy);
+                    if (response.ok) {
+                        const data = await response.text();
+                        parseICal(data);
+                        renderCalendar();
+                        break;
+                    }
+                } catch (e) {
+                    console.log("Proxy attempt skipped:", proxy);
+                }
+            }
+        }
+
+        loadICalData();
+    </script>
+</body>
+</html>

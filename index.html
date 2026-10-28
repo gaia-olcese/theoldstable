@@ -192,13 +192,79 @@
             margin-top: 1rem;
         }
 
-        .gallery-grid img {
+        .gallery-item {
+            display: block;
+            overflow: hidden;
+            border-radius: 10px;
+            text-decoration: none;
+            background: #eaeaea;
+        }
+
+        .gallery-item img {
+            display: block;
             width: 100%;
             height: 130px;
             object-fit: cover;
             border-radius: 10px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.02);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+        }
+
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(19, 29, 24, 0.82);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+        }
+
+        .lightbox.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: min(90vw, 900px);
+            max-height: 90vh;
+            background: #fff;
+            border-radius: 16px;
+            padding: 0.75rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .lightbox-content img {
+            display: block;
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 12px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #fff;
+            font-size: 1.25rem;
+            cursor: pointer;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.18);
         }
 
         /* Responsive Calendar Widget Styling (Fixed Overflow) */
@@ -431,7 +497,7 @@
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
                 gap: 1.2rem;
             }
-            .gallery-grid img {
+            .gallery-item img {
                 height: 200px;
             }
             .cal-container {
@@ -521,7 +587,7 @@
         <p>A cosy two-floor guest house located right behind Chipping Sodbury High Street, on the edge of the Cotswolds.</p>
         <div class="hero-buttons">
             <a href="mailto:theoldstable.cs@outlook.com" class="btn btn-accent">✉️ Email for Best Rate</a>
-            <a href="https://www.airbnb.co.uk/rooms/1185572450476986600?guests=1&adults=1&s=67&unique_share_id=c0d5f85c-7058-4e52-8c38-efd1c77179bb" target="_blank" class="btn btn-outline" style="border-color: #ffffff; color: #ffffff;">View on Airbnb</a>
+            <a href="https://www.airbnb.co.uk/rooms/1185572450476986600?guests=1&adults=1&s=67&unique_share_id=c0d5f85c-7058-4e52-8c38-efd1c77179bb" target="_blank" class="btn btn-outline" style="border-color: rgba(255,255,255,0.8); color: #ffffff; background: rgba(255,255,255,0.08);">Book Now</a>
         </div>
     </section>
 
@@ -535,7 +601,7 @@
             <p><strong>Upper Floor:</strong> Bedroom with a double bed, wardrobe, and a compact bathroom.</p>
             
             <div class="notice-box">
-                ℹ️ <strong>Please Note:</strong> The shower is quite short (if you are over 6ft tall, it might be a tight squeeze!) and the stairs are narrow and steep, so the space is not suitable for guests with mobility issues.
+                ℹ️ <strong>Please Note:</strong> The shower is quite short (if you are over 6ft tall, it might be a tight squeeze!) and the stairs are narrow and steep, so the space is not suitable for everyone.
             </div>
         </section>
 
@@ -543,14 +609,14 @@
         <section>
             <h2>Gallery</h2>
             <div class="gallery-grid">
-                <img src="exterior.png" alt="Exterior view">
-                <img src="living_room_1.png" alt="Living room 1">
-                <img src="living_room_2.png" alt="Living room 2">
-                <img src="living_room_3.png" alt="Living room 3">
-                <img src="bedroom_1.png" alt="Bedroom 1">
-                <img src="bedroom_2.png" alt="Bedroom 2">
-                <img src="bathroom_1.png" alt="Bathroom 1">
-                <img src="bathroom_2.png" alt="Bathroom 2">
+                <a class="gallery-item" href="exterior.png" aria-label="Open Exterior view"><img src="exterior.png" alt="Exterior view"></a>
+                <a class="gallery-item" href="living_room_1.png" aria-label="Open Living room 1"><img src="living_room_1.png" alt="Living room 1"></a>
+                <a class="gallery-item" href="living_room_2.png" aria-label="Open Living room 2"><img src="living_room_2.png" alt="Living room 2"></a>
+                <a class="gallery-item" href="living_room_3.png" aria-label="Open Living room 3"><img src="living_room_3.png" alt="Living room 3"></a>
+                <a class="gallery-item" href="bedroom_1.png" aria-label="Open Bedroom 1"><img src="bedroom_1.png" alt="Bedroom 1"></a>
+                <a class="gallery-item" href="bedroom_2.png" aria-label="Open Bedroom 2"><img src="bedroom_2.png" alt="Bedroom 2"></a>
+                <a class="gallery-item" href="bathroom_1.png" aria-label="Open Bathroom 1"><img src="bathroom_1.png" alt="Bathroom 1"></a>
+                <a class="gallery-item" href="bathroom_2.png" aria-label="Open Bathroom 2"><img src="bathroom_2.png" alt="Bathroom 2"></a>
             </div>
         </section>
 
@@ -589,7 +655,7 @@
         <!-- Meet the Management Section -->
         <section>
             <h2>Meet the Management Team 🐾</h2>
-            <p>The Old Stable is co-managed by humans Gaia and Adam, alongside our highly demanding feline supervisors. We live on-site and recently renovated the space to make it as cozy as possible for your stay!</p>
+            <p>The Old Stable is co-managed by humans Gaia and Adam, alongside our highly demanding feline supervisors. We live on-site and recently renovated the space to make it as cozy as possible.</p>
             <p>We'll do our best to welcome you in person, but a secure lockbox is available for hassle-free self check-in whenever you arrive.</p>
             
             <div class="hosts-grid">
@@ -627,7 +693,7 @@
                 <p>Drop us an email directly for the best rates, or book through Airbnb.</p>
                 <div class="contact-box-actions">
                     <a href="mailto:theoldstable.cs@outlook.com" class="btn btn-accent">✉️ theoldstable.cs@outlook.com</a>
-                    <a href="https://www.airbnb.co.uk/rooms/1185572450476986600?guests=1&adults=1&s=67&unique_share_id=c0d5f85c-7058-4e52-8c38-efd1c77179bb" target="_blank" class="btn btn-outline" style="border-color: #ffffff; color: #ffffff;">View Airbnb Listing</a>
+                    <a href="https://www.airbnb.co.uk/rooms/1185572450476986600?guests=1&adults=1&s=67&unique_share_id=c0d5f85c-7058-4e52-8c38-efd1c77179bb" target="_blank" class="btn btn-outline" style="border-color: rgba(255,255,255,0.8); color: #ffffff; background: rgba(255,255,255,0.08);">Book via Airbnb</a>
                 </div>
             </div>
         </div>
@@ -637,6 +703,13 @@
     <footer>
         <p>© 2026 The Old Stable, Chipping Sodbury. All Rights Reserved.</p>
     </footer>
+
+    <div id="galleryLightbox" class="lightbox" aria-hidden="true">
+        <div class="lightbox-content">
+            <button class="lightbox-close" type="button" aria-label="Close image">×</button>
+            <img id="lightboxImage" src="" alt="Expanded gallery image">
+        </div>
+    </div>
 
     <!-- iCal Sync & Calendar Widget Logic -->
     <script>
@@ -789,7 +862,7 @@
                 subtext.innerText = `${formatDisplayDate(selectedCheckIn)} — ${formatDisplayDate(selectedCheckOut)}`;
 
                 const subject = encodeURIComponent(`Booking Inquiry: The Old Stable (${formatDisplayDate(selectedCheckIn)} - ${formatDisplayDate(selectedCheckOut)})`);
-                const body = encodeURIComponent(`Hi Gaia & Adam,\n\nI would like to inquire about booking The Old Stable for ${nights} night(s):\n\nCheck-in: ${formatDisplayDate(selectedCheckIn)}\nCheck-out: ${formatDisplayDate(selectedCheckOut)}\n\nPlease let me know availability and pricing details.\n\nThank you!`);
+                const body = encodeURIComponent(`Hi Gaia & Adam,\n\nI would like to inquire about booking The Old Stable for ${nights} night(s):\n\nCheck-in: ${formatDisplayDate(selectedCheckIn)}\nCheck-out: ${formatDisplayDate(selectedCheckOut)}\n\nPlease let me know availability and rates.\n\nThanks!`);
                 
                 btn.href = `mailto:theoldstable.cs@outlook.com?subject=${subject}&body=${body}`;
                 btn.style.display = 'inline-flex';
@@ -808,6 +881,39 @@
         document.getElementById('nextMonthBtn').addEventListener('click', () => {
             currentDate.setMonth(currentDate.getMonth() + 1);
             renderCalendar();
+        });
+
+        const galleryLinks = document.querySelectorAll('.gallery-item');
+        const lightbox = document.getElementById('galleryLightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const lightboxClose = document.querySelector('.lightbox-close');
+
+        galleryLinks.forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                lightboxImage.src = this.href;
+                lightbox.classList.add('open');
+                lightbox.setAttribute('aria-hidden', 'false');
+            });
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove('open');
+            lightbox.setAttribute('aria-hidden', 'true');
+            lightboxImage.src = '';
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', function (event) {
+            if (event.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && lightbox.classList.contains('open')) {
+                closeLightbox();
+            }
         });
 
         // Initialize Calendar immediately

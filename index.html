@@ -172,7 +172,7 @@
             margin-top: 1rem;
         }
 
-        /* Info Highlight Box */
+        /* Notice Box */
         .notice-box {
             background: #F2F5F3;
             border-left: 4px solid var(--accent);
@@ -205,7 +205,154 @@
             box-shadow: 0 8px 18px rgba(0,0,0,0.12);
         }
 
-        /* Playful Team & Hosts Grid */
+        /* Interactive Calendar Widget Styling */
+        .cal-container {
+            background: #FAFBF9;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .cal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .cal-month-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .cal-nav-btn {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--primary);
+            transition: all 0.2s;
+        }
+
+        .cal-nav-btn:hover {
+            background: var(--primary);
+            color: #ffffff;
+        }
+
+        .cal-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 6px;
+            text-align: center;
+        }
+
+        .cal-day-name {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            padding-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .cal-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            user-select: none;
+        }
+
+        .cal-day:hover:not(.disabled):not(.empty) {
+            background: rgba(212, 163, 115, 0.3);
+            border-color: var(--accent);
+        }
+
+        .cal-day.empty {
+            background: transparent;
+            border: none;
+            cursor: default;
+        }
+
+        .cal-day.disabled {
+            background: #EAEAEA;
+            color: #A0A0A0;
+            text-decoration: line-through;
+            cursor: not-allowed;
+            border-color: #E0E0E0;
+        }
+
+        .cal-day.selected {
+            background: var(--primary) !important;
+            color: #ffffff !important;
+            border-color: var(--primary) !important;
+        }
+
+        .cal-day.in-range {
+            background: rgba(212, 163, 115, 0.4);
+            color: var(--primary);
+        }
+
+        .cal-legend {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            justify-content: center;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .legend-box {
+            width: 14px;
+            height: 14px;
+            border-radius: 4px;
+        }
+
+        .booking-summary {
+            background: var(--primary);
+            color: #ffffff;
+            border-radius: 14px;
+            padding: 1.25rem 1.5rem;
+            margin-top: 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .booking-info h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .booking-info p {
+            font-size: 0.88rem;
+            opacity: 0.9;
+        }
+
+        /* Team & Hosts Grid */
         .hosts-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -257,25 +404,6 @@
             font-size: 0.88rem;
             color: var(--text-muted);
             line-height: 1.45;
-        }
-
-        /* Calendar Container Styling */
-        .calendar-wrapper {
-            position: relative;
-            width: 100%;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            background: #ffffff;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
-            margin-top: 1.5rem;
-        }
-
-        .calendar-wrapper iframe {
-            width: 100%;
-            height: 550px;
-            border: 0;
-            display: block;
         }
 
         /* Location Grid */
@@ -331,8 +459,9 @@
             header {
                 padding: 1rem;
             }
-            .calendar-wrapper iframe {
-                height: 480px;
+            .booking-summary {
+                flex-direction: column;
+                text-align: center;
             }
         }
     </style>
@@ -387,17 +516,39 @@
             </div>
         </section>
 
-        <!-- Availability Section -->
+        <!-- Dynamic Live Availability Calendar Widget -->
         <section>
-            <h2>Check Our Availability</h2>
-            <p>Check available dates on our calendar below. To get the best direct price, email us with your preferred dates or book through Airbnb.</p>
+            <h2>Check Availability & Request Dates</h2>
+            <p>Select your check-in and check-out dates on the calendar below (synced live with our Airbnb calendar). Direct bookings get our best direct rate!</p>
             
-            <div class="calendar-wrapper">
-                <iframe src="https://teamup.com/ksfg3x5xxjh5bpdhvk?view=m" loading="lazy"></iframe>
+            <div class="cal-container">
+                <div class="cal-header">
+                    <button class="cal-nav-btn" id="prevMonthBtn">&lt;</button>
+                    <div class="cal-month-title" id="monthTitle">Select Month</div>
+                    <button class="cal-nav-btn" id="nextMonthBtn">&gt;</button>
+                </div>
+
+                <div class="cal-grid" id="calendarGrid">
+                    <!-- Dynamic Days Rendered via JS -->
+                </div>
+
+                <div class="cal-legend">
+                    <div class="legend-item"><div class="legend-box" style="background: #ffffff; border: 1px solid #ccc;"></div> Available</div>
+                    <div class="legend-item"><div class="legend-box" style="background: #EAEAEA;"></div> Booked (Airbnb)</div>
+                    <div class="legend-item"><div class="legend-box" style="background: var(--primary);"></div> Selected</div>
+                </div>
+
+                <div class="booking-summary" id="bookingSummary">
+                    <div class="booking-info">
+                        <h4 id="summaryHeading">Select Check-in Date</h4>
+                        <p id="summarySubtext">Click any available date to start your reservation request.</p>
+                    </div>
+                    <a id="emailRequestBtn" href="#" class="btn btn-accent" style="display: none;">✉️ Send Booking Request</a>
+                </div>
             </div>
         </section>
 
-        <!-- Funner "Meet the Management" Section -->
+        <!-- Meet the Management Section -->
         <section>
             <h2>Meet the Management Team 🐾</h2>
             <p>The Old Stable is co-managed by humans Gaia and Adam, alongside our highly demanding feline supervisors. We live on-site and recently renovated the space to make it as cozy as possible for your stay!</p>
@@ -405,49 +556,4 @@
             
             <div class="hosts-grid">
                 <div class="host-card">
-                    <img src="gaia_adam.jpg" alt="Gaia & Adam">
-                    <h4>Gaia & Adam</h4>
-                    <span class="host-badge">Human Operations & Logistics</span>
-                    <p>In charge of key handovers, fresh linens, message responses, and keeping the cats' treat bowls filled.</p>
-                </div>
-                <div class="host-card">
-                    <img src="nya.jpg" alt="Nya">
-                    <h4>Nya</h4>
-                    <span class="host-badge">Chief Treat Officer 🐾</span>
-                    <p>Head of garden security and quality control. May occasionally supervise your check-in from a sunspot.</p>
-                </div>
-                <div class="host-card">
-                    <img src="freya.jpg" alt="Freya">
-                    <h4>Freya</h4>
-                    <span class="host-badge">Senior Nap Specialist 💤</span>
-                    <p>In charge of atmosphere testing and lap-warmth inspections. Prefers quiet afternoons and gentle ear scratches.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Location & Direct Booking -->
-        <div class="info-grid">
-            <section style="margin-bottom: 0;">
-                <h2>Location & Parking</h2>
-                <p>We are located on <strong>Horse Street, Chipping Sodbury</strong>, right behind the High Street where you'll find plenty of local pubs, restaurants, and shops.</p>
-                <p style="margin-top: 1rem;">🚗 <strong>Parking:</strong> Available at the back on <strong>Melbourne Drive</strong>.</p>
-            </section>
-
-            <div class="contact-box">
-                <h2>Ready to Stay?</h2>
-                <p>Drop us an email directly for the best rates, or book through Airbnb.</p>
-                <div class="contact-box-actions">
-                    <a href="mailto:theoldstable.cs@outlook.com" class="btn btn-accent">✉️ theoldstable.cs@outlook.com</a>
-                    <a href="https://www.airbnb.co.uk/rooms/1185572450476986600?guests=1&adults=1&s=67&unique_share_id=c0d5f85c-7058-4e52-8c38-efd1c77179bb" target="_blank" class="btn btn-outline" style="border-color: #ffffff; color: #ffffff;">View Airbnb Listing</a>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <footer>
-        <p>© 2026 The Old Stable, Chipping Sodbury. All Rights Reserved.</p>
-    </footer>
-
-</body>
-</html>
+                    <img src="gaia_adam.

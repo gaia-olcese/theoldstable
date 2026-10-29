@@ -709,58 +709,6 @@
             </div>
         </section>
 
-        <!-- Reviews Section -->
-        <section class="reviews-section">
-            <div class="reviews-header">
-                <h2>Loved by Guests</h2>
-                <p>Read verified guest reviews from our Google and Airbnb profiles.</p>
-            </div>
-
-            <div class="reviews-grid">
-                <a href="https://maps.app.goo.gl/dYWbRUFGGu7EF4Ke9" target="_blank" rel="noopener" class="review-card">
-                    <div>
-                        <div class="stars">★★★★★</div>
-                        <p class="review-text">"Lovely 3 night stay at The Stables. Spotless, comfortable bed, and contained everything we needed. We had a fabulous time and would thoroughly recommend!"</p>
-                    </div>
-                    <div>
-                        <div class="review-footer">
-                            <span class="author-info">Ray Smith</span>
-                            <span class="source-tag">📍 Google Review</span>
-                        </div>
-                        <span class="verify-link">Verify on Google ↗</span>
-                    </div>
-                </a>
-
-                <a href="https://www.airbnb.co.uk/rooms/1185572450476986600?guests=1&adults=1&s=67&unique_share_id=c0d5f85c-7058-4e52-8c38-efd1c77179bb" target="_blank" rel="noopener" class="review-card">
-                    <div>
-                        <div class="stars">★★★★★</div>
-                        <p class="review-text">"Incredibly cozy and thoughtful... Out back, the garden is absolutely gorgeous—a serene space with quiet privacy. Highly recommended!"</p>
-                    </div>
-                    <div>
-                        <div class="review-footer">
-                            <span class="author-info">Yiu Kwong</span>
-                            <span class="source-tag">🏡 Airbnb Guest</span>
-                        </div>
-                        <span class="verify-link">Verify on Airbnb ↗</span>
-                    </div>
-                </a>
-
-                <a href="https://www.airbnb.co.uk/rooms/1185572450476986600?guests=1&adults=1&s=67&unique_share_id=c0d5f85c-7058-4e52-8c38-efd1c77179bb" target="_blank" rel="noopener" class="review-card">
-                    <div>
-                        <div class="stars">★★★★★</div>
-                        <p class="review-text">"Clean, comfortable, and beautifully maintained. Everything was well organised, and the atmosphere was peaceful and relaxing."</p>
-                    </div>
-                    <div>
-                        <div class="review-footer">
-                            <span class="author-info">Sandra</span>
-                            <span class="source-tag">🏡 Airbnb Guest</span>
-                        </div>
-                        <span class="verify-link">Verify on Airbnb ↗</span>
-                    </div>
-                </a>
-            </div>
-        </section>
-
         <!-- Gallery Section -->
         <section>
             <h2>Gallery</h2>
@@ -833,6 +781,58 @@
                     <span class="host-badge">Senior Nap Specialist 💤</span>
                     <p>In charge of atmosphere testing and lap-warmth inspections. Loves quiet afternoons and chin scratches.</p>
                 </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section class="reviews-section">
+            <div class="reviews-header">
+                <h2>Loved by Guests</h2>
+                <p>Read verified guest reviews from our Google and Airbnb profiles.</p>
+            </div>
+
+            <div class="reviews-grid">
+                <a href="https://maps.app.goo.gl/dYWbRUFGGu7EF4Ke9" target="_blank" rel="noopener" class="review-card">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <p class="review-text">"Lovely 3 night stay at The Stables. Spotless, comfortable bed, and contained everything we needed. We had a fabulous time and would thoroughly recommend!"</p>
+                    </div>
+                    <div>
+                        <div class="review-footer">
+                            <span class="author-info">Ray Smith</span>
+                            <span class="source-tag">📍 Google Review</span>
+                        </div>
+                        <span class="verify-link">Verify on Google ↗</span>
+                    </div>
+                </a>
+
+                <a href="https://www.airbnb.co.uk/rooms/1185572450476986600?guests=1&adults=1&s=67&unique_share_id=c0d5f85c-7058-4e52-8c38-efd1c77179bb" target="_blank" rel="noopener" class="review-card">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <p class="review-text">"Incredibly cozy and thoughtful... Out back, the garden is absolutely gorgeous—a serene space with quiet privacy. Highly recommended!"</p>
+                    </div>
+                    <div>
+                        <div class="review-footer">
+                            <span class="author-info">Yiu Kwong</span>
+                            <span class="source-tag">🏡 Airbnb Guest</span>
+                        </div>
+                        <span class="verify-link">Verify on Airbnb ↗</span>
+                    </div>
+                </a>
+
+                <a href="https://www.airbnb.co.uk/rooms/1185572450476986600?guests=1&adults=1&s=67&unique_share_id=c0d5f85c-7058-4e52-8c38-efd1c77179bb" target="_blank" rel="noopener" class="review-card">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <p class="review-text">"Clean, comfortable, and beautifully maintained. Everything was well organised, and the atmosphere was peaceful and relaxing."</p>
+                    </div>
+                    <div>
+                        <div class="review-footer">
+                            <span class="author-info">Sandra</span>
+                            <span class="source-tag">🏡 Airbnb Guest</span>
+                        </div>
+                        <span class="verify-link">Verify on Airbnb ↗</span>
+                    </div>
+                </a>
             </div>
         </section>
 
@@ -1071,6 +1071,12 @@
                 closeLightbox();
             }
         });
+
+        const container = document.querySelector('.container');
+        const reviewsSection = document.querySelector('.reviews-section');
+        if (container && reviewsSection) {
+            container.appendChild(reviewsSection);
+        }
 
         // Initialize Calendar immediately
         renderCalendar();

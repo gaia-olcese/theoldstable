@@ -784,6 +784,24 @@
             </div>
         </section>
 
+        <!-- Location & Direct Booking -->
+        <div class="info-grid">
+            <section style="margin-bottom: 0;">
+                <h2>Location & Parking</h2>
+                <p>We are located right behind <strong>Horse Street, Chipping Sodbury</strong>, where you'll find plenty of local pubs, restaurants, and shops.</p>
+                <p style="margin-top: 1rem;">🚗 <strong>Parking:</strong> Available at the back on <strong>Melbourne Drive</strong>.</p>
+            </section>
+
+            <div class="contact-box">
+                <h2>Ready to Stay?</h2>
+                <p>Drop us an email directly for the best rates, or book through Airbnb.</p>
+                <div class="contact-box-actions">
+                    <a href="mailto:theoldstable.cs@outlook.com" class="btn btn-accent">✉️ theoldstable.cs@outlook.com</a>
+                    <a href="https://www.airbnb.co.uk/rooms/1185572450476986600?guests=1&adults=1&s=67&unique_share_id=c0d5f85c-7058-4e52-8c38-efd1c77179bb" target="_blank" class="btn btn-outline" style="border-color: #ffffff; color: #ffffff;">Book on Airbnb</a>
+                </div>
+            </div>
+        </div>
+
         <!-- Reviews Section -->
         <section class="reviews-section">
             <div class="reviews-header">
@@ -835,24 +853,6 @@
                 </a>
             </div>
         </section>
-
-        <!-- Location & Direct Booking -->
-        <div class="info-grid">
-            <section style="margin-bottom: 0;">
-                <h2>Location & Parking</h2>
-                <p>We are located right behind <strong>Horse Street, Chipping Sodbury</strong>, where you'll find plenty of local pubs, restaurants, and shops.</p>
-                <p style="margin-top: 1rem;">🚗 <strong>Parking:</strong> Available at the back on <strong>Melbourne Drive</strong>.</p>
-            </section>
-
-            <div class="contact-box">
-                <h2>Ready to Stay?</h2>
-                <p>Drop us an email directly for the best rates, or book through Airbnb.</p>
-                <div class="contact-box-actions">
-                    <a href="mailto:theoldstable.cs@outlook.com" class="btn btn-accent">✉️ theoldstable.cs@outlook.com</a>
-                    <a href="https://www.airbnb.co.uk/rooms/1185572450476986600?guests=1&adults=1&s=67&unique_share_id=c0d5f85c-7058-4e52-8c38-efd1c77179bb" target="_blank" class="btn btn-outline" style="border-color: #ffffff; color: #ffffff;">Book on Airbnb</a>
-                </div>
-            </div>
-        </div>
 
     </div>
 
@@ -1071,12 +1071,6 @@
                 closeLightbox();
             }
         });
-
-        const container = document.querySelector('.container');
-        const reviewsSection = document.querySelector('.reviews-section');
-        if (container && reviewsSection) {
-            container.appendChild(reviewsSection);
-        }
 
         // Initialize Calendar immediately
         renderCalendar();

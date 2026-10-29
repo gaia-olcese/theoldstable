@@ -184,6 +184,110 @@
             color: #38423D;
         }
 
+        /* Review Section */
+        .reviews-section {
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem 1rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .reviews-header {
+            max-width: 700px;
+            margin: 0 auto 1.5rem auto;
+            text-align: center;
+        }
+
+        .reviews-header h2 {
+            margin-bottom: 0.35rem;
+        }
+
+        .reviews-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .reviews-grid {
+            max-width: 960px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.1rem;
+        }
+
+        .review-card {
+            background: #ffffff;
+            border: 1px solid #e7ece7;
+            border-radius: 16px;
+            padding: 1.25rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+            text-align: left;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            cursor: pointer;
+        }
+
+        .review-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+            border-color: var(--primary);
+        }
+
+        .stars {
+            color: #f59e0b;
+            font-size: 1.1rem;
+            margin-bottom: 0.85rem;
+            letter-spacing: 0.05rem;
+        }
+
+        .review-text {
+            font-size: 0.93rem;
+            color: #2d3748;
+            line-height: 1.55;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .review-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            border-top: 1px solid #edf1ee;
+            padding-top: 0.8rem;
+            margin-top: auto;
+        }
+
+        .author-info {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .source-tag {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            background: #f5f7f5;
+            padding: 0.25rem 0.5rem;
+            border-radius: 6px;
+        }
+
+        .verify-link {
+            font-size: 0.8rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-top: 0.55rem;
+            display: block;
+            text-align: right;
+        }
+
         /* Gallery Grid */
         .gallery-grid {
             display: grid;
@@ -587,7 +691,7 @@
         <p>A cosy two-floor guest house located right behind Chipping Sodbury High Street, on the edge of the Cotswolds.</p>
         <div class="hero-buttons">
             <a href="mailto:theoldstable.cs@outlook.com" class="btn btn-accent">✉️ Email for Best Rate</a>
-            <a href="https://www.airbnb.co.uk/rooms/1185572450476986600?guests=1&adults=1&s=67&unique_share_id=c0d5f85c-7058-4e52-8c38-efd1c77179bb" target="_blank" class="btn btn-outline" style="border-color: rgba(255,255,255,0.8); color: #ffffff; background: rgba(255,255,255,0.08);">Book on Airbnb</a>
+            <a href="https://www.airbnb.co.uk/rooms/1185572450476986600?guests=1&adults=1&s=67&unique_share_id=c0d5f85c-7058-4e52-8c38-efd1c77179bb" target="_blank" class="btn btn-outline" style="border-color: #ffffff; color: #ffffff;">View Airbnb</a>
         </div>
     </section>
 
@@ -596,12 +700,64 @@
         <!-- About Section -->
         <section>
             <h2>About Our Space</h2>
-            <p>The Old Stable is a cozy guest house equipped with everything you need for a comfortable stay on the edge of the Cotswolds. Ideal for a couple, can accommodate 3 people for a short stay.</p>
+            <p>The Old Stable is a cozy guest house equipped with everything you need for a comfortable stay on the edge of the Cotswolds. Ideal for a couple, can accommodate 3 people for a short stay, and offers a welcoming, home-from-home atmosphere.</p>
             <p><strong>Ground Floor:</strong> Kitchenette with essentials for breakfast and a quick bite, a square dining table, and a sofa bed.</p>
             <p><strong>Upper Floor:</strong> Bedroom with a double bed, wardrobe, and a compact bathroom.</p>
             
             <div class="notice-box">
-                ℹ️ <strong>Please Note:</strong> The shower is quite short (if you are over 6ft tall, it might be a tight squeeze!) and the stairs are narrow and steep, so the space is not suitable for everyone.
+                ℹ️ <strong>Please Note:</strong> The shower is quite short (if you are over 6ft tall, it might be a tight squeeze!) and the stairs are narrow and steep, so the space is not suitable for those with mobility limitations.
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section class="reviews-section">
+            <div class="reviews-header">
+                <h2>Loved by Guests</h2>
+                <p>Read verified guest reviews from our Google and Airbnb profiles.</p>
+            </div>
+
+            <div class="reviews-grid">
+                <a href="https://maps.app.goo.gl/dYWbRUFGGu7EF4Ke9" target="_blank" rel="noopener" class="review-card">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <p class="review-text">"Lovely 3 night stay at The Stables. Spotless, comfortable bed, and contained everything we needed. We had a fabulous time and would thoroughly recommend!"</p>
+                    </div>
+                    <div>
+                        <div class="review-footer">
+                            <span class="author-info">Ray Smith</span>
+                            <span class="source-tag">📍 Google Review</span>
+                        </div>
+                        <span class="verify-link">Verify on Google ↗</span>
+                    </div>
+                </a>
+
+                <a href="https://www.airbnb.co.uk/rooms/1185572450476986600?guests=1&adults=1&s=67&unique_share_id=c0d5f85c-7058-4e52-8c38-efd1c77179bb" target="_blank" rel="noopener" class="review-card">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <p class="review-text">"Incredibly cozy and thoughtful... Out back, the garden is absolutely gorgeous—a serene space with quiet privacy. Highly recommended!"</p>
+                    </div>
+                    <div>
+                        <div class="review-footer">
+                            <span class="author-info">Yiu Kwong</span>
+                            <span class="source-tag">🏡 Airbnb Guest</span>
+                        </div>
+                        <span class="verify-link">Verify on Airbnb ↗</span>
+                    </div>
+                </a>
+
+                <a href="https://www.airbnb.co.uk/rooms/1185572450476986600?guests=1&adults=1&s=67&unique_share_id=c0d5f85c-7058-4e52-8c38-efd1c77179bb" target="_blank" rel="noopener" class="review-card">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <p class="review-text">"Clean, comfortable, and beautifully maintained. Everything was well organised, and the atmosphere was peaceful and relaxing."</p>
+                    </div>
+                    <div>
+                        <div class="review-footer">
+                            <span class="author-info">Sandra</span>
+                            <span class="source-tag">🏡 Airbnb Guest</span>
+                        </div>
+                        <span class="verify-link">Verify on Airbnb ↗</span>
+                    </div>
+                </a>
             </div>
         </section>
 
@@ -693,7 +849,7 @@
                 <p>Drop us an email directly for the best rates, or book through Airbnb.</p>
                 <div class="contact-box-actions">
                     <a href="mailto:theoldstable.cs@outlook.com" class="btn btn-accent">✉️ theoldstable.cs@outlook.com</a>
-                    <a href="https://www.airbnb.co.uk/rooms/1185572450476986600?guests=1&adults=1&s=67&unique_share_id=c0d5f85c-7058-4e52-8c38-efd1c77179bb" target="_blank" class="btn btn-outline" style="border-color: rgba(255,255,255,0.8); color: #ffffff; background: rgba(255,255,255,0.08);">Book via Airbnb</a>
+                    <a href="https://www.airbnb.co.uk/rooms/1185572450476986600?guests=1&adults=1&s=67&unique_share_id=c0d5f85c-7058-4e52-8c38-efd1c77179bb" target="_blank" class="btn btn-outline" style="border-color: #ffffff; color: #ffffff;">Book on Airbnb</a>
                 </div>
             </div>
         </div>
@@ -862,7 +1018,7 @@
                 subtext.innerText = `${formatDisplayDate(selectedCheckIn)} — ${formatDisplayDate(selectedCheckOut)}`;
 
                 const subject = encodeURIComponent(`Booking Inquiry: The Old Stable (${formatDisplayDate(selectedCheckIn)} - ${formatDisplayDate(selectedCheckOut)})`);
-                const body = encodeURIComponent(`Hi Gaia & Adam,\n\nI would like to inquire about booking The Old Stable for ${nights} night(s):\n\nCheck-in: ${formatDisplayDate(selectedCheckIn)}\nCheck-out: ${formatDisplayDate(selectedCheckOut)}\n\nPlease let me know availability and rates.\n\nThanks!`);
+                const body = encodeURIComponent(`Hi Gaia & Adam,\n\nI would like to inquire about booking The Old Stable for ${nights} night(s):\n\nCheck-in: ${formatDisplayDate(selectedCheckIn)}\nCheck-out: ${formatDisplayDate(selectedCheckOut)}\n\nPlease let me know about availability and rates.\n\nThanks!`);
                 
                 btn.href = `mailto:theoldstable.cs@outlook.com?subject=${subject}&body=${body}`;
                 btn.style.display = 'inline-flex';
